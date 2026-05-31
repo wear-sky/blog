@@ -1,0 +1,491 @@
+2026-06-01T03:50:46.528+08:00  INFO 13496 --- [click-service] [main] c.w.demo.click.ClickServiceApplication   : Starting ClickServiceApplication using Java 17.0.16 with PID 13496 (D:\JetBrains\IdeaProjects\blog\click-service\target\classes started by wearsky in D:\JetBrains\IdeaProjects\blog)
+2026-06-01T03:50:46.528+08:00 DEBUG 13496 --- [click-service] [main] c.w.demo.click.ClickServiceApplication   : Running with Spring Boot v3.5.14, Spring v6.2.18
+2026-06-01T03:50:46.541+08:00  INFO 13496 --- [click-service] [main] c.w.demo.click.ClickServiceApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-06-01T03:50:47.502+08:00  INFO 13496 --- [click-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8a80114b-e077-36aa-ab0f-fa048bf83ab0
+2026-06-01T03:50:47.871+08:00  INFO 13496 --- [click-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 48080 (http)
+2026-06-01T03:50:47.886+08:00  INFO 13496 --- [click-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-01T03:50:47.886+08:00  INFO 13496 --- [click-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.54]
+2026-06-01T03:50:47.943+08:00  INFO 13496 --- [click-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-01T03:50:47.943+08:00  INFO 13496 --- [click-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1358 ms
+2026-06-01T03:50:48.509+08:00  INFO 13496 --- [click-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-06-01T03:50:48.925+08:00  INFO 13496 --- [click-service] [main] m.e.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4089713
+2026-06-01T03:50:49.359+08:00  WARN 13496 --- [click-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-01T03:50:49.448+08:00  INFO 13496 --- [click-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 48080 (http) with context path '/'
+2026-06-01T03:50:49.472+08:00  INFO 13496 --- [click-service] [Thread-3] c.a.n.c.a.r.identify.CredentialWatcher   : null No credential found
+2026-06-01T03:50:49.474+08:00  INFO 13496 --- [click-service] [main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter Builder: com.alibaba.nacos.logger.adapter.logback14.LogbackNacosLoggingAdapterBuilder
+2026-06-01T03:50:49.474+08:00  INFO 13496 --- [click-service] [main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter: com.alibaba.nacos.logger.adapter.logback14.LogbackNacosLoggingAdapter match ch.qos.logback.classic.Logger success.
+2026-06-01T03:50:49.474+08:00  INFO 13496 --- [click-service] [main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter Builder: com.alibaba.nacos.logger.adapter.log4j2.Log4j2NacosLoggingAdapterBuilder
+2026-06-01T03:50:49.584+08:00  INFO 13496 --- [click-service] [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-06-01T03:50:49.584+08:00  INFO 13496 --- [click-service] [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-06-01T03:50:50.187+08:00  INFO 13496 --- [click-service] [main] c.a.n.c.a.AbstractAbilityControlManager  : Ready to get current node abilities...
+2026-06-01T03:50:50.187+08:00  INFO 13496 --- [click-service] [main] c.a.n.c.a.AbstractAbilityControlManager  : Ready to initialize current node abilities, support modes: [SDK_CLIENT]
+2026-06-01T03:50:50.187+08:00  INFO 13496 --- [click-service] [main] c.a.n.c.a.AbstractAbilityControlManager  : Initialize current abilities finish...
+2026-06-01T03:50:50.187+08:00  INFO 13496 --- [click-service] [main] c.a.n.c.a.d.NacosAbilityManagerHolder    : [AbilityControlManager] Successfully initialize AbilityControlManager
+2026-06-01T03:50:50.223+08:00  INFO 13496 --- [click-service] [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP click-service 192.168.1.200:48080 register finished
+2026-06-01T03:50:50.264+08:00  INFO 13496 --- [click-service] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-06-01T03:50:50.320+08:00  INFO 13496 --- [click-service] [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#5751e53e:0/SimpleConnection@6e757f39 [delegate=amqp://blog@127.0.0.1:5672/blog, localPort=64497]
+2026-06-01T03:50:50.449+08:00  INFO 13496 --- [click-service] [main] c.w.demo.click.ClickServiceApplication   : Started ClickServiceApplication in 4.509 seconds (process running for 5.126)
+2026-06-01T03:55:45.179+08:00  INFO 13496 --- [click-service] [http-nio-48080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-01T03:55:45.180+08:00  INFO 13496 --- [click-service] [http-nio-48080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-01T03:55:45.182+08:00  INFO 13496 --- [click-service] [http-nio-48080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-06-01T03:55:45.313+08:00  INFO 13496 --- [click-service] [http-nio-48080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-01T03:55:45.508+08:00  INFO 13496 --- [click-service] [http-nio-48080-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b25e924
+2026-06-01T03:55:45.510+08:00  INFO 13496 --- [click-service] [http-nio-48080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-01T03:55:45.516+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:55:45.529+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:55:45.542+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 0(Long)
+2026-06-01T03:55:45.542+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:55:45.578+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:55:45.578+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:56:25.734+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客1
+2026-06-01T03:56:25.747+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T03:56:25.748+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:25.754+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T03:56:25.757+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T03:56:25.758+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 1(Long), 1(Long), 2(Long)
+2026-06-01T03:56:25.763+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T03:56:26.469+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客1
+2026-06-01T03:56:26.474+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T03:56:26.475+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:26.476+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T03:56:26.925+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客1
+2026-06-01T03:56:26.928+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T03:56:26.929+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:26.930+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T03:56:29.414+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:56:29.414+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:56:29.415+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:29.416+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 0(Long)
+2026-06-01T03:56:29.417+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:56:29.417+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:56:31.076+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客1
+2026-06-01T03:56:31.081+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T03:56:31.081+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:31.083+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T03:56:31.412+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客1
+2026-06-01T03:56:31.416+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T03:56:31.416+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:31.418+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T03:56:31.589+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客1
+2026-06-01T03:56:31.591+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T03:56:31.592+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:31.593+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T03:56:32.916+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:56:32.916+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:56:32.917+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:32.917+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 0(Long)
+2026-06-01T03:56:32.919+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:56:32.919+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:56:40.629+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.demo.click.listener.ClickListener    : 点踩：用户、1 、博客1
+2026-06-01T03:56:40.633+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T03:56:40.633+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:40.635+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T03:56:40.635+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T03:56:40.636+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 1(Long), 0(Long), 2(Long)
+2026-06-01T03:56:40.638+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T03:56:41.870+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:56:41.870+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:56:41.871+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 0(Long)
+2026-06-01T03:56:41.871+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:41.872+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:56:41.872+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:56:48.950+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、评论1
+2026-06-01T03:56:48.955+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==>  Preparing: SELECT id,user_id,reply_id,is_like FROM click_reply WHERE (reply_id = ? AND user_id = ?)
+2026-06-01T03:56:48.956+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:48.960+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : <==      Total: 0
+2026-06-01T03:56:48.962+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.mapper.ClickReplyMapper.insert   : ==>  Preparing: INSERT INTO click_reply ( user_id, reply_id, is_like ) VALUES ( ?, ?, ? )
+2026-06-01T03:56:48.963+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.mapper.ClickReplyMapper.insert   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2026-06-01T03:56:48.966+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.mapper.ClickReplyMapper.insert   : <==    Updates: 1
+2026-06-01T03:56:50.304+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:56:50.304+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:56:50.305+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:56:50.305+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 0(Long)
+2026-06-01T03:56:50.307+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:56:50.307+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:57:05.710+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、评论1
+2026-06-01T03:57:05.715+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==>  Preparing: SELECT id,user_id,reply_id,is_like FROM click_reply WHERE (reply_id = ? AND user_id = ?)
+2026-06-01T03:57:05.716+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:57:05.718+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : <==      Total: 1
+2026-06-01T03:57:12.222+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:57:12.222+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:57:12.223+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 0(Long)
+2026-06-01T03:57:12.223+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:57:12.225+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:57:12.225+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:57:46.879+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、评论1
+2026-06-01T03:57:46.885+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==>  Preparing: SELECT id,user_id,reply_id,is_like FROM click_reply WHERE (reply_id = ? AND user_id = ?)
+2026-06-01T03:57:46.886+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T03:57:46.888+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : <==      Total: 1
+2026-06-01T03:58:25.015+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:58:25.015+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T03:58:25.015+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T03:58:25.015+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T03:58:25.016+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T03:58:25.016+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:09.358+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:09.358+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:09.359+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:06:09.359+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:06:09.360+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:09.360+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:13.700+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.demo.click.listener.ClickListener    : 点踩：用户、1 、博客4
+2026-06-01T04:06:13.704+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:06:13.704+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:06:13.705+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 0
+2026-06-01T04:06:13.706+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.mapper.ClickBlogMapper.insert    : ==>  Preparing: INSERT INTO click_blog ( user_id, blog_id, is_like ) VALUES ( ?, ?, ? )
+2026-06-01T04:06:13.707+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.mapper.ClickBlogMapper.insert    : ==> Parameters: 1(Long), 4(Long), 0(Long)
+2026-06-01T04:06:13.708+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.mapper.ClickBlogMapper.insert    : <==    Updates: 1
+2026-06-01T04:06:15.372+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:06:15.375+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:06:15.376+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:06:15.377+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:06:15.378+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T04:06:15.378+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 4(Long), 1(Long), 7(Long)
+2026-06-01T04:06:15.380+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T04:06:16.653+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:16.653+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:16.654+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:06:16.654+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:06:16.655+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:16.655+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:17.924+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.demo.click.listener.ClickListener    : 点踩：用户、1 、博客4
+2026-06-01T04:06:17.928+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:06:17.928+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:06:17.930+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:06:17.930+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T04:06:17.930+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 4(Long), 0(Long), 7(Long)
+2026-06-01T04:06:17.932+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T04:06:18.833+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:18.833+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:18.833+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:06:18.833+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:06:18.835+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:18.835+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:22.980+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:22.980+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:22.980+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:06:22.980+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:06:22.981+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:22.981+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:27.134+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:27.134+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:06:27.134+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 0(Long)
+2026-06-01T04:06:27.134+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 1(Long), 1(Long)
+2026-06-01T04:06:27.135+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:06:27.135+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:42:23.737+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:42:23.737+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:42:23.738+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:42:23.738+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:23.740+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:42:23.740+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:42:27.167+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:27.172+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:27.172+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:27.174+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:27.174+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T04:42:27.175+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 4(Long), 1(Long), 7(Long)
+2026-06-01T04:42:27.177+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T04:42:30.207+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:42:30.207+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:42:30.208+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:42:30.208+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:30.210+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:42:30.210+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:42:53.576+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:42:53.576+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:42:53.576+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:53.576+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:42:53.578+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:42:53.578+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:42:54.532+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.demo.click.listener.ClickListener    : 点踩：用户、1 、博客4
+2026-06-01T04:42:54.536+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:54.536+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:54.538+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:54.539+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T04:42:54.539+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 4(Long), 0(Long), 7(Long)
+2026-06-01T04:42:54.541+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T04:42:55.894+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:55.897+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:55.897+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:55.898+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:55.899+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T04:42:55.900+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 4(Long), 1(Long), 7(Long)
+2026-06-01T04:42:55.902+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T04:42:56.445+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:56.448+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:56.449+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:56.450+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:56.892+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:56.895+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:56.896+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:56.897+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:57.061+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:57.063+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:57.064+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:57.065+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:57.220+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:57.224+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:57.225+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:57.227+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:57.388+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:57.392+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:57.392+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:57.393+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:57.540+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:57.543+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:57.544+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:57.545+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:57.694+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:57.697+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:57.698+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:57.699+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:57.835+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:42:57.840+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:57.840+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:57.841+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:58.099+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.demo.click.listener.ClickListener    : 点踩：用户、1 、博客4
+2026-06-01T04:42:58.103+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:42:58.103+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:58.105+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:42:58.105+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T04:42:58.106+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 4(Long), 0(Long), 7(Long)
+2026-06-01T04:42:58.108+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T04:42:59.610+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:42:59.610+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:42:59.610+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:42:59.610+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:42:59.612+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:42:59.612+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:09.552+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:09.552+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:09.552+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:43:09.552+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:43:09.554+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:09.554+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:11.710+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、评论7
+2026-06-01T04:43:11.713+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==>  Preparing: SELECT id,user_id,reply_id,is_like FROM click_reply WHERE (reply_id = ? AND user_id = ?)
+2026-06-01T04:43:11.714+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==> Parameters: 7(Long), 1(Long)
+2026-06-01T04:43:11.715+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:43:11.716+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.mapper.ClickReplyMapper.insert   : ==>  Preparing: INSERT INTO click_reply ( user_id, reply_id, is_like ) VALUES ( ?, ?, ? )
+2026-06-01T04:43:11.716+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.mapper.ClickReplyMapper.insert   : ==> Parameters: 1(Long), 7(Long), 1(Long)
+2026-06-01T04:43:11.718+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.mapper.ClickReplyMapper.insert   : <==    Updates: 1
+2026-06-01T04:43:13.058+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:13.058+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:13.058+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:43:13.058+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:43:13.060+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:13.060+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:15.621+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:15.621+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:15.621+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:43:15.621+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:43:15.623+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:15.623+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:17.307+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:17.307+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:17.308+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:43:17.308+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:43:17.309+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:17.309+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:19.778+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:19.778+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:19.778+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:43:19.778+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:43:19.789+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:19.789+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:21.519+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.demo.click.listener.ClickListener    : 点踩：用户、1 、评论8
+2026-06-01T04:43:21.523+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==>  Preparing: SELECT id,user_id,reply_id,is_like FROM click_reply WHERE (reply_id = ? AND user_id = ?)
+2026-06-01T04:43:21.523+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==> Parameters: 8(Long), 1(Long)
+2026-06-01T04:43:21.524+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:43:21.525+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.mapper.ClickReplyMapper.insert   : ==>  Preparing: INSERT INTO click_reply ( user_id, reply_id, is_like ) VALUES ( ?, ?, ? )
+2026-06-01T04:43:21.525+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.mapper.ClickReplyMapper.insert   : ==> Parameters: 1(Long), 8(Long), 0(Long)
+2026-06-01T04:43:21.527+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.mapper.ClickReplyMapper.insert   : <==    Updates: 1
+2026-06-01T04:43:22.910+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:22.910+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:43:22.910+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:43:22.910+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:43:22.912+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:43:22.912+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:15.562+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:15.562+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:15.562+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 8(Long)
+2026-06-01T04:48:15.562+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 8(Long)
+2026-06-01T04:48:15.564+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:48:15.564+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 1
+2026-06-01T04:48:15.606+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:15.606+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:15.606+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:48:15.606+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:48:15.608+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:15.608+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:25.527+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、博客4
+2026-06-01T04:48:25.531+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:48:25.531+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:48:25.533+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 1
+2026-06-01T04:48:25.533+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==>  Preparing: UPDATE click_blog SET user_id=?, blog_id=?, is_like=? WHERE id=?
+2026-06-01T04:48:25.534+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : ==> Parameters: 1(Long), 4(Long), 1(Long), 7(Long)
+2026-06-01T04:48:25.536+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.updateById     : <==    Updates: 1
+2026-06-01T04:48:26.788+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:26.788+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:26.788+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 8(Long)
+2026-06-01T04:48:26.788+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 8(Long)
+2026-06-01T04:48:26.789+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:48:26.790+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 1
+2026-06-01T04:48:26.819+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:26.819+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:26.819+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:48:26.819+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:48:26.820+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:26.820+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:42.861+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、评论8
+2026-06-01T04:48:42.864+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==>  Preparing: SELECT id,user_id,reply_id,is_like FROM click_reply WHERE (reply_id = ? AND user_id = ?)
+2026-06-01T04:48:42.864+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==> Parameters: 8(Long), 1(Long)
+2026-06-01T04:48:42.866+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:48:42.867+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.updateById    : ==>  Preparing: UPDATE click_reply SET user_id=?, reply_id=?, is_like=? WHERE id=?
+2026-06-01T04:48:42.868+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.updateById    : ==> Parameters: 1(Long), 8(Long), 1(Long), 11(Long)
+2026-06-01T04:48:42.871+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.updateById    : <==    Updates: 1
+2026-06-01T04:48:43.885+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、1 、评论8
+2026-06-01T04:48:43.889+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==>  Preparing: SELECT id,user_id,reply_id,is_like FROM click_reply WHERE (reply_id = ? AND user_id = ?)
+2026-06-01T04:48:43.889+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==> Parameters: 8(Long), 1(Long)
+2026-06-01T04:48:43.890+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] c.w.d.c.m.ClickReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:48:45.436+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:45.436+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:45.436+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 8(Long)
+2026-06-01T04:48:45.436+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 8(Long)
+2026-06-01T04:48:45.438+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:48:45.438+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 1
+2026-06-01T04:48:45.469+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:45.469+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:45.469+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:48:45.470+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:48:45.471+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:45.471+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:48.580+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.demo.click.listener.ClickListener    : 点踩：用户、1 、评论8
+2026-06-01T04:48:48.584+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==>  Preparing: SELECT id,user_id,reply_id,is_like FROM click_reply WHERE (reply_id = ? AND user_id = ?)
+2026-06-01T04:48:48.584+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.selectList    : ==> Parameters: 8(Long), 1(Long)
+2026-06-01T04:48:48.586+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:48:48.587+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.updateById    : ==>  Preparing: UPDATE click_reply SET user_id=?, reply_id=?, is_like=? WHERE id=?
+2026-06-01T04:48:48.587+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.updateById    : ==> Parameters: 1(Long), 8(Long), 0(Long), 11(Long)
+2026-06-01T04:48:48.589+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#3-1] c.w.d.c.m.ClickReplyMapper.updateById    : <==    Updates: 1
+2026-06-01T04:48:50.048+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:50.048+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:50.048+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 8(Long)
+2026-06-01T04:48:50.048+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 8(Long)
+2026-06-01T04:48:50.050+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:48:50.051+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 1
+2026-06-01T04:48:50.065+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:50.065+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:50.065+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 0(Long)
+2026-06-01T04:48:50.065+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 4(Long), 1(Long)
+2026-06-01T04:48:50.083+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:50.083+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:54.684+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:54.684+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:54.684+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:48:54.684+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:48:54.686+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:54.686+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:58.678+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:58.678+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? ) group by reply_id
+2026-06-01T04:48:58.678+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 9(Long)
+2026-06-01T04:48:58.678+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 9(Long)
+2026-06-01T04:48:58.679+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:48:58.679+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:48:58.705+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:58.705+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:48:58.705+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:48:58.706+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:48:58.707+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:48:58.707+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:03.470+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? , ? ) group by reply_id
+2026-06-01T04:49:03.470+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? , ? ) group by reply_id
+2026-06-01T04:49:03.471+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 9(Long), 10(Long)
+2026-06-01T04:49:03.471+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 9(Long), 10(Long)
+2026-06-01T04:49:03.478+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:49:03.478+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:49:03.507+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:03.507+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:49:03.507+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:03.509+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:49:03.515+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:03.515+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:07.384+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? , ? , ? ) group by reply_id
+2026-06-01T04:49:07.384+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? , ? , ? ) group by reply_id
+2026-06-01T04:49:07.384+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 9(Long), 10(Long), 11(Long)
+2026-06-01T04:49:07.384+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 9(Long), 10(Long), 11(Long)
+2026-06-01T04:49:07.386+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:49:07.386+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:49:07.417+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:07.417+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:07.417+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:49:07.417+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:49:07.420+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:07.420+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:11.304+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:11.305+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 9(Long), 10(Long), 11(Long), 12(Long)
+2026-06-01T04:49:11.307+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:49:11.307+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:11.307+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 9(Long), 10(Long), 11(Long), 12(Long)
+2026-06-01T04:49:11.310+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:49:11.344+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:11.344+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:11.344+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:49:11.344+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:49:11.346+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:11.346+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:17.993+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? , ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:17.993+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? , ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:17.993+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 9(Long), 10(Long), 11(Long), 13(Long), 12(Long)
+2026-06-01T04:49:17.993+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 9(Long), 10(Long), 11(Long), 13(Long), 12(Long)
+2026-06-01T04:49:17.995+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:49:17.995+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:49:18.034+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:18.034+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:18.034+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:49:18.034+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:49:18.036+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:18.036+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:35.911+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? , ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:35.911+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? , ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:35.911+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 9(Long), 10(Long), 11(Long), 13(Long), 12(Long)
+2026-06-01T04:49:35.911+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 9(Long), 10(Long), 11(Long), 13(Long), 12(Long)
+2026-06-01T04:49:35.912+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:49:35.912+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:49:35.957+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:35.957+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:49:35.962+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:35.962+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:49:35.963+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-4] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:35.963+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-3] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:42.695+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? , ? , ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:42.695+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? , ? , ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:42.695+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 9(Long), 10(Long), 11(Long), 13(Long), 12(Long), 14(Long)
+2026-06-01T04:49:42.695+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 9(Long), 10(Long), 11(Long), 13(Long), 12(Long), 14(Long)
+2026-06-01T04:49:42.705+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-6] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:49:42.705+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-5] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:49:42.749+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:42.749+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:42.749+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:49:42.750+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:49:42.752+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-7] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:42.752+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-8] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:53.011+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.demo.click.listener.ClickListener    : 点赞：用户、2 、博客3
+2026-06-01T04:49:53.014+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==>  Preparing: SELECT id,user_id,blog_id,is_like FROM click_blog WHERE (blog_id = ? AND user_id = ?)
+2026-06-01T04:49:53.014+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : ==> Parameters: 3(Long), 2(Long)
+2026-06-01T04:49:53.015+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.m.ClickBlogMapper.selectList     : <==      Total: 0
+2026-06-01T04:49:53.016+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.mapper.ClickBlogMapper.insert    : ==>  Preparing: INSERT INTO click_blog ( user_id, blog_id, is_like ) VALUES ( ?, ?, ? )
+2026-06-01T04:49:53.016+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.mapper.ClickBlogMapper.insert    : ==> Parameters: 2(Long), 3(Long), 1(Long)
+2026-06-01T04:49:53.019+08:00 DEBUG 13496 --- [click-service] [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] c.w.d.c.mapper.ClickBlogMapper.insert    : <==    Updates: 1
+2026-06-01T04:49:54.989+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.C.getClickCount4LikeReplies    : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 1 AND reply_id IN ( ? , ? , ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:54.989+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.C.getClickCount4DislikeReplies : ==>  Preparing: select reply_id, COUNT(*) AS count from click_reply where is_like = 0 AND reply_id IN ( ? , ? , ? , ? , ? , ? ) group by reply_id
+2026-06-01T04:49:54.989+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.C.getClickCount4LikeReplies    : ==> Parameters: 9(Long), 10(Long), 11(Long), 13(Long), 12(Long), 14(Long)
+2026-06-01T04:49:54.989+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.C.getClickCount4DislikeReplies : ==> Parameters: 9(Long), 10(Long), 11(Long), 13(Long), 12(Long), 14(Long)
+2026-06-01T04:49:54.991+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-10] c.w.d.c.m.C.getClickCount4LikeReplies    : <==      Total: 0
+2026-06-01T04:49:54.991+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-9] c.w.d.c.m.C.getClickCount4DislikeReplies : <==      Total: 0
+2026-06-01T04:49:55.049+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:55.049+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==>  Preparing: SELECT COUNT( * ) AS total FROM click_blog WHERE (blog_id = ? AND is_like = ?)
+2026-06-01T04:49:55.051+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 0(Long)
+2026-06-01T04:49:55.051+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : ==> Parameters: 3(Long), 1(Long)
+2026-06-01T04:49:55.052+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-1] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1
+2026-06-01T04:49:55.052+08:00 DEBUG 13496 --- [click-service] [http-nio-48080-exec-2] c.w.d.c.m.ClickBlogMapper.selectCount    : <==      Total: 1

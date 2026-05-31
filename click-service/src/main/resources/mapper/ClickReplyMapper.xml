@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wearsky.demo.click.mapper.ClickReplyMapper">
+
+    <select id="getClickCount4LikeReplies" resultType="clickReplyCount" parameterType="list">
+        select reply_id, COUNT(*) AS count
+        from click_reply
+        where is_like = 1 AND reply_id IN
+        <foreach collection="replyIds" item="i" open="(" close=")" separator=",">
+            #{i}
+        </foreach>
+        group by reply_id
+    </select>
+
+    <select id="getClickCount4DislikeReplies" resultType="clickReplyCount" parameterType="list">
+        select reply_id, COUNT(*) AS count
+        from click_reply
+        where is_like = 0 AND reply_id IN
+        <foreach collection="replyIds" item="i" open="(" close=")" separator=",">
+            #{i}
+        </foreach>
+        group by reply_id
+    </select>
+
+</mapper>

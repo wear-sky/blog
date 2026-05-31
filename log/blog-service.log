@@ -1,0 +1,659 @@
+2026-06-01T03:50:38.910+08:00  INFO 16208 --- [blog-service] [main] c.w.demo.blog.BlogServiceApplication     : Starting BlogServiceApplication using Java 17.0.16 with PID 16208 (D:\JetBrains\IdeaProjects\blog\blog-service\target\classes started by wearsky in D:\JetBrains\IdeaProjects\blog)
+2026-06-01T03:50:38.917+08:00 DEBUG 16208 --- [blog-service] [main] c.w.demo.blog.BlogServiceApplication     : Running with Spring Boot v3.5.14, Spring v6.2.18
+2026-06-01T03:50:38.918+08:00  INFO 16208 --- [blog-service] [main] c.w.demo.blog.BlogServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-06-01T03:50:39.873+08:00  INFO 16208 --- [blog-service] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5cf8d65d-e470-3fad-99e3-2aefcfbf9a4e
+2026-06-01T03:50:40.258+08:00  INFO 16208 --- [blog-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 38080 (http)
+2026-06-01T03:50:40.290+08:00  INFO 16208 --- [blog-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-01T03:50:40.290+08:00  INFO 16208 --- [blog-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.54]
+2026-06-01T03:50:40.333+08:00  INFO 16208 --- [blog-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-06-01T03:50:40.333+08:00  INFO 16208 --- [blog-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1361 ms
+2026-06-01T03:50:40.627+08:00  INFO 16208 --- [blog-service] [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+2026-06-01T03:50:41.181+08:00  INFO 16208 --- [blog-service] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-06-01T03:50:41.591+08:00  INFO 16208 --- [blog-service] [main] m.e.s.MybatisPlusApplicationContextAware : Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2f08c4b
+2026-06-01T03:50:41.828+08:00  WARN 16208 --- [blog-service] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-06-01T03:50:41.891+08:00  INFO 16208 --- [blog-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 38080 (http) with context path '/'
+2026-06-01T03:50:41.910+08:00  INFO 16208 --- [blog-service] [Thread-3] c.a.n.c.a.r.identify.CredentialWatcher   : null No credential found
+2026-06-01T03:50:41.910+08:00  INFO 16208 --- [blog-service] [main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter Builder: com.alibaba.nacos.logger.adapter.logback14.LogbackNacosLoggingAdapterBuilder
+2026-06-01T03:50:41.910+08:00  INFO 16208 --- [blog-service] [main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter: com.alibaba.nacos.logger.adapter.logback14.LogbackNacosLoggingAdapter match ch.qos.logback.classic.Logger success.
+2026-06-01T03:50:41.910+08:00  INFO 16208 --- [blog-service] [main] c.a.nacos.client.logging.NacosLogging    : Nacos Logging Adapter Builder: com.alibaba.nacos.logger.adapter.log4j2.Log4j2NacosLoggingAdapterBuilder
+2026-06-01T03:50:41.998+08:00  INFO 16208 --- [blog-service] [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2026-06-01T03:50:41.998+08:00  INFO 16208 --- [blog-service] [main] c.a.n.p.a.s.c.ClientAuthPluginManager    : [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2026-06-01T03:50:42.548+08:00  INFO 16208 --- [blog-service] [main] c.a.n.c.a.AbstractAbilityControlManager  : Ready to get current node abilities...
+2026-06-01T03:50:42.548+08:00  INFO 16208 --- [blog-service] [main] c.a.n.c.a.AbstractAbilityControlManager  : Ready to initialize current node abilities, support modes: [SDK_CLIENT]
+2026-06-01T03:50:42.548+08:00  INFO 16208 --- [blog-service] [main] c.a.n.c.a.AbstractAbilityControlManager  : Initialize current abilities finish...
+2026-06-01T03:50:42.548+08:00  INFO 16208 --- [blog-service] [main] c.a.n.c.a.d.NacosAbilityManagerHolder    : [AbilityControlManager] Successfully initialize AbilityControlManager
+2026-06-01T03:50:42.583+08:00  INFO 16208 --- [blog-service] [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP blog-service 192.168.1.200:38080 register finished
+2026-06-01T03:50:42.646+08:00  INFO 16208 --- [blog-service] [main] c.w.demo.blog.BlogServiceApplication     : Started BlogServiceApplication in 4.275 seconds (process running for 4.901)
+2026-06-01T03:55:33.767+08:00  INFO 16208 --- [blog-service] [http-nio-38080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-01T03:55:33.767+08:00  INFO 16208 --- [blog-service] [http-nio-38080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-06-01T03:55:33.780+08:00  INFO 16208 --- [blog-service] [http-nio-38080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2026-06-01T03:55:34.005+08:00  INFO 16208 --- [blog-service] [http-nio-38080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-01T03:55:34.239+08:00  INFO 16208 --- [blog-service] [http-nio-38080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@60913efb
+2026-06-01T03:55:34.240+08:00  INFO 16208 --- [blog-service] [http-nio-38080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-01T03:55:34.246+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T03:55:34.265+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T03:55:34.307+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T03:55:34.320+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T03:55:34.322+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T03:55:34.336+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 2
+2026-06-01T03:55:44.944+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T03:55:44.944+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 1(Long)
+2026-06-01T03:55:44.946+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T03:55:44.951+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T03:55:44.952+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 1(Long)
+2026-06-01T03:55:44.964+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T03:56:25.648+08:00  INFO 16208 --- [blog-service] [http-nio-38080-exec-4] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-06-01T03:56:25.702+08:00  INFO 16208 --- [blog-service] [http-nio-38080-exec-4] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#3e4f2300:0/SimpleConnection@3fd97b43 [delegate=amqp://blog@127.0.0.1:5672/blog, localPort=64731]
+2026-06-01T03:56:29.387+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T03:56:29.387+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T03:56:29.387+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 1(Long)
+2026-06-01T03:56:29.387+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 1(Long)
+2026-06-01T03:56:29.390+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T03:56:29.390+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T03:56:32.890+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T03:56:32.890+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T03:56:32.891+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 1(Long)
+2026-06-01T03:56:32.891+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 1(Long)
+2026-06-01T03:56:32.893+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T03:56:32.893+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T03:56:41.841+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T03:56:41.841+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T03:56:41.841+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 1(Long)
+2026-06-01T03:56:41.841+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 1(Long)
+2026-06-01T03:56:41.843+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T03:56:41.845+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T03:56:50.280+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T03:56:50.280+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 1(Long)
+2026-06-01T03:56:50.280+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T03:56:50.281+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 1(Long)
+2026-06-01T03:56:50.282+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T03:56:50.284+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T03:57:12.186+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T03:57:12.186+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T03:57:12.187+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 1(Long)
+2026-06-01T03:57:12.187+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 1(Long)
+2026-06-01T03:57:12.189+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T03:57:12.190+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T03:58:24.680+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.demo.blog.mapper.BlogMapper.insert   : ==>  Preparing: INSERT INTO blog ( title, content, author_id ) VALUES ( ?, ?, ? )
+2026-06-01T03:58:24.680+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.demo.blog.mapper.BlogMapper.insert   : ==> Parameters: 第二条博客(String), 试试
+试试
+
+试试(String), 1(Long)
+2026-06-01T03:58:24.685+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.demo.blog.mapper.BlogMapper.insert   : <==    Updates: 1
+2026-06-01T03:58:24.983+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T03:58:24.984+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T03:58:24.984+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T03:58:24.986+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T03:58:24.987+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T03:58:24.989+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:05:50.879+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:05:50.880+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:05:50.882+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:05:50.884+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:05:50.885+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:05:50.889+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:06:09.332+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:06:09.332+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:06:09.333+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:06:09.333+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:06:09.334+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:06:09.334+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:06:16.632+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:06:16.632+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:06:16.633+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:06:16.633+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:06:16.634+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:06:16.634+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:06:18.811+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:06:18.811+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:06:18.811+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:06:18.811+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:06:18.813+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:06:18.813+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:06:21.613+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:06:21.614+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:06:21.615+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:06:21.617+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:06:21.617+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:06:21.621+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:06:22.960+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:06:22.960+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:06:22.961+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:06:22.961+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:06:22.962+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:06:22.962+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:06:25.431+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:06:25.431+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:06:25.432+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:06:25.434+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:06:25.434+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:06:25.436+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:06:27.112+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:06:27.112+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 1(Long)
+2026-06-01T04:06:27.113+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:06:27.113+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 1(Long)
+2026-06-01T04:06:27.113+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:06:27.115+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T04:27:28.815+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:27:28.816+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:27:28.818+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:27:28.820+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:27:28.820+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:27:28.822+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:42:15.197+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:42:15.197+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:42:15.203+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:42:15.208+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:42:15.209+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:42:15.213+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:42:23.694+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:42:23.694+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:42:23.694+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:42:23.695+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:42:23.696+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:42:23.696+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:42:30.173+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:42:30.173+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:42:30.174+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:42:30.174+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:42:30.175+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:42:30.175+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:42:49.732+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:42:49.732+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:42:49.733+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:42:49.735+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:42:49.735+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:42:49.737+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:42:53.545+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:42:53.545+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:42:53.545+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:42:53.545+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:42:53.546+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:42:53.546+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:42:59.572+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:42:59.573+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:42:59.573+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:42:59.574+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:42:59.575+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:42:59.575+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:09.483+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:43:09.484+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:43:09.485+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:09.488+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.demo.blog.mapper.ReplyMapper.insert  : ==>  Preparing: INSERT INTO reply ( blog_id, content, user_id ) VALUES ( ?, ?, ? )
+2026-06-01T04:43:09.489+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.demo.blog.mapper.ReplyMapper.insert  : ==> Parameters: 4(Long), 123(String), 1(Long)
+2026-06-01T04:43:09.492+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.demo.blog.mapper.ReplyMapper.insert  : <==    Updates: 1
+2026-06-01T04:43:09.513+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:43:09.514+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:43:09.514+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:43:09.514+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:43:09.515+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:43:09.515+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:13.014+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:43:13.015+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:43:13.015+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:43:13.015+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:43:13.016+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:43:13.016+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:15.554+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectById    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE id=? AND deleted=0
+2026-06-01T04:43:15.554+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectById    : ==> Parameters: 7(Long)
+2026-06-01T04:43:15.556+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectById    : <==      Total: 1
+2026-06-01T04:43:15.561+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.deleteById    : ==>  Preparing: UPDATE reply SET deleted=1 WHERE id=? AND deleted=0
+2026-06-01T04:43:15.561+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.deleteById    : ==> Parameters: 7(Long)
+2026-06-01T04:43:15.563+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.deleteById    : <==    Updates: 1
+2026-06-01T04:43:15.588+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:43:15.589+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:43:15.591+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:43:15.591+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:15.591+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:43:15.594+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:43:17.265+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:43:17.265+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:43:17.266+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:43:17.266+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:43:17.267+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:43:17.268+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:19.715+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:43:19.715+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:43:19.716+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:19.717+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.demo.blog.mapper.ReplyMapper.insert  : ==>  Preparing: INSERT INTO reply ( blog_id, content, user_id ) VALUES ( ?, ?, ? )
+2026-06-01T04:43:19.717+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.demo.blog.mapper.ReplyMapper.insert  : ==> Parameters: 4(Long), 321(String), 1(Long)
+2026-06-01T04:43:19.719+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.demo.blog.mapper.ReplyMapper.insert  : <==    Updates: 1
+2026-06-01T04:43:19.738+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:43:19.738+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:43:19.743+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:43:19.743+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:43:19.743+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:19.745+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:43:22.869+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:43:22.869+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:43:22.869+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:43:22.869+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:43:22.871+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:43:22.871+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:48:14.345+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:48:14.345+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:48:14.347+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:48:14.349+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:48:14.350+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:48:14.352+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:48:15.523+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:48:15.523+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:48:15.523+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:48:15.523+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:48:15.524+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:48:15.524+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:48:26.766+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:48:26.767+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:48:26.768+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:48:26.769+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:48:26.770+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:48:26.770+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:48:45.416+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:48:45.416+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:48:45.417+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:48:45.417+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:48:45.418+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:48:45.419+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:48:50.028+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:48:50.028+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:48:50.028+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 4(Long)
+2026-06-01T04:48:50.029+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 4(Long)
+2026-06-01T04:48:50.030+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:48:50.030+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:48:53.299+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:48:53.300+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:48:53.302+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:48:53.303+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:48:53.303+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:48:53.304+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:48:54.657+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:48:54.657+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:48:54.659+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:48:54.659+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:48:54.659+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:48:54.660+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 0
+2026-06-01T04:48:58.627+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:48:58.627+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:48:58.628+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:48:58.629+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.demo.blog.mapper.ReplyMapper.insert  : ==>  Preparing: INSERT INTO reply ( blog_id, content, user_id ) VALUES ( ?, ?, ? )
+2026-06-01T04:48:58.629+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.demo.blog.mapper.ReplyMapper.insert  : ==> Parameters: 3(Long), 123123(String), 1(Long)
+2026-06-01T04:48:58.630+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.demo.blog.mapper.ReplyMapper.insert  : <==    Updates: 1
+2026-06-01T04:48:58.655+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:48:58.655+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:48:58.660+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:48:58.660+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:48:58.661+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:48:58.662+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 1
+2026-06-01T04:49:03.419+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:03.420+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:03.421+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:03.421+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectById    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE id=? AND deleted=0
+2026-06-01T04:49:03.421+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectById    : ==> Parameters: 9(Long)
+2026-06-01T04:49:03.422+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectById    : <==      Total: 1
+2026-06-01T04:49:03.422+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.demo.blog.mapper.ReplyMapper.insert  : ==>  Preparing: INSERT INTO reply ( blog_id, parent_id, reply_to_user_id, content, user_id ) VALUES ( ?, ?, ?, ?, ? )
+2026-06-01T04:49:03.423+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.demo.blog.mapper.ReplyMapper.insert  : ==> Parameters: 3(Long), 9(Long), 1(Long), 32131(String), 1(Long)
+2026-06-01T04:49:03.424+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.demo.blog.mapper.ReplyMapper.insert  : <==    Updates: 1
+2026-06-01T04:49:03.436+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:03.448+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:03.450+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:49:03.450+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:49:03.451+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:03.452+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 2
+2026-06-01T04:49:07.340+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:07.341+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:07.342+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:07.342+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectById    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE id=? AND deleted=0
+2026-06-01T04:49:07.342+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectById    : ==> Parameters: 10(Long)
+2026-06-01T04:49:07.343+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.mapper.ReplyMapper.selectById    : <==      Total: 1
+2026-06-01T04:49:07.344+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.demo.blog.mapper.ReplyMapper.insert  : ==>  Preparing: INSERT INTO reply ( blog_id, parent_id, reply_to_user_id, content, user_id ) VALUES ( ?, ?, ?, ?, ? )
+2026-06-01T04:49:07.344+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.demo.blog.mapper.ReplyMapper.insert  : ==> Parameters: 3(Long), 10(Long), 1(Long), 1111(String), 1(Long)
+2026-06-01T04:49:07.346+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.demo.blog.mapper.ReplyMapper.insert  : <==    Updates: 1
+2026-06-01T04:49:07.357+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:07.357+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:07.365+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:49:07.365+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:49:07.365+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:07.367+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 3
+2026-06-01T04:49:11.259+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:11.259+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:11.260+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:11.260+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectById    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE id=? AND deleted=0
+2026-06-01T04:49:11.260+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectById    : ==> Parameters: 10(Long)
+2026-06-01T04:49:11.261+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectById    : <==      Total: 1
+2026-06-01T04:49:11.262+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.demo.blog.mapper.ReplyMapper.insert  : ==>  Preparing: INSERT INTO reply ( blog_id, parent_id, reply_to_user_id, content, user_id ) VALUES ( ?, ?, ?, ?, ? )
+2026-06-01T04:49:11.263+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.demo.blog.mapper.ReplyMapper.insert  : ==> Parameters: 3(Long), 10(Long), 1(Long), 321321(String), 1(Long)
+2026-06-01T04:49:11.264+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.demo.blog.mapper.ReplyMapper.insert  : <==    Updates: 1
+2026-06-01T04:49:11.284+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:11.285+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:11.286+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:49:11.287+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:11.287+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:49:11.288+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 4
+2026-06-01T04:49:17.946+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:17.947+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:17.948+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:17.948+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectById    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE id=? AND deleted=0
+2026-06-01T04:49:17.948+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectById    : ==> Parameters: 11(Long)
+2026-06-01T04:49:17.949+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.d.b.mapper.ReplyMapper.selectById    : <==      Total: 1
+2026-06-01T04:49:17.950+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.demo.blog.mapper.ReplyMapper.insert  : ==>  Preparing: INSERT INTO reply ( blog_id, parent_id, reply_to_user_id, content, user_id ) VALUES ( ?, ?, ?, ?, ? )
+2026-06-01T04:49:17.951+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.demo.blog.mapper.ReplyMapper.insert  : ==> Parameters: 3(Long), 11(Long), 1(Long), 321321312312312(String), 1(Long)
+2026-06-01T04:49:17.953+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-5] c.w.demo.blog.mapper.ReplyMapper.insert  : <==    Updates: 1
+2026-06-01T04:49:17.968+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:17.968+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:17.973+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:49:17.973+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:17.973+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:49:17.975+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T04:49:28.144+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:49:28.144+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:49:28.145+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:49:28.146+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:49:28.147+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:49:28.148+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:49:34.573+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:49:34.573+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:49:34.574+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:49:34.575+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:49:34.575+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:49:34.576+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:49:35.892+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:35.892+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:49:35.892+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:35.892+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:49:35.893+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-4] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:35.893+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 5
+2026-06-01T04:49:42.644+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:42.644+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:42.645+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:42.645+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectById    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE id=? AND deleted=0
+2026-06-01T04:49:42.645+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectById    : ==> Parameters: 9(Long)
+2026-06-01T04:49:42.647+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.b.mapper.ReplyMapper.selectById    : <==      Total: 1
+2026-06-01T04:49:42.648+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.demo.blog.mapper.ReplyMapper.insert  : ==>  Preparing: INSERT INTO reply ( blog_id, parent_id, reply_to_user_id, content, user_id ) VALUES ( ?, ?, ?, ?, ? )
+2026-06-01T04:49:42.648+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.demo.blog.mapper.ReplyMapper.insert  : ==> Parameters: 3(Long), 9(Long), 1(Long), 去恶趣味请问请问(String), 2(Long)
+2026-06-01T04:49:42.650+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.demo.blog.mapper.ReplyMapper.insert  : <==    Updates: 1
+2026-06-01T04:49:42.673+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:42.673+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:42.674+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:49:42.674+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:49:42.675+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-10] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:42.675+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 6
+2026-06-01T04:49:54.966+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:49:54.966+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:49:54.966+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:49:54.966+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:49:54.967+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-9] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 6
+2026-06-01T04:49:54.967+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-3] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:49:58.746+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==>  Preparing: SELECT COUNT(*) AS total FROM blog WHERE deleted = 0
+2026-06-01T04:49:58.746+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : ==> Parameters: 
+2026-06-01T04:49:58.747+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.b.m.BlogMapper.selectList_mpCount  : <==      Total: 1
+2026-06-01T04:49:58.748+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : ==>  Preparing: SELECT id, title, content, author_id, deleted, created_at, updated_at FROM blog WHERE deleted = 0 ORDER BY created_at DESC LIMIT ?
+2026-06-01T04:49:58.748+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : ==> Parameters: 10(Long)
+2026-06-01T04:49:58.750+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-2] c.w.d.blog.mapper.BlogMapper.selectList  : <==      Total: 3
+2026-06-01T04:50:01.025+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:50:01.025+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:50:01.026+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:50:01.026+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:50:01.027+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:50:01.027+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-6] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 6
+2026-06-01T04:50:01.056+08:00 ERROR 16208 --- [blog-service] [http-nio-38080-exec-1] c.w.d.c.e.GlobalExceptionHandler         : 服务器内部错误
+
+feign.FeignException$Unauthorized: [401] during [GET] to [http://user-service/user-service/user/2] [UserClient#getUser(Long)]: [{"code":401,"message":"请先登录","data":null}]
+	at feign.FeignException.clientErrorStatus(FeignException.java:245) ~[feign-core-13.6.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:223) ~[feign-core-13.6.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:213) ~[feign-core-13.6.1.jar:na]
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103) ~[feign-core-13.6.1.jar:na]
+	at feign.InvocationContext.decodeError(InvocationContext.java:133) ~[feign-core-13.6.1.jar:na]
+	at feign.InvocationContext.proceed(InvocationContext.java:80) ~[feign-core-13.6.1.jar:na]
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:69) ~[feign-core-13.6.1.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:109) ~[feign-core-13.6.1.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) ~[feign-core-13.6.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:104) ~[feign-core-13.6.1.jar:na]
+	at jdk.proxy2/jdk.proxy2.$Proxy103.getUser(Unknown Source) ~[na:na]
+	at com.wearsky.demo.blog.service.impl.BlogServiceImpl.getBlog(BlogServiceImpl.java:82) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor117.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.18.jar:6.2.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724) ~[spring-aop-6.2.18.jar:6.2.18]
+	at com.wearsky.demo.blog.service.impl.BlogServiceImpl$$SpringCGLIB$$0.getBlog(<generated>) ~[classes/:na]
+	at com.wearsky.demo.blog.controller.BlogController.getBlog(BlogController.java:52) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor114.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.54.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.54.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:370) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at com.wearsky.demo.common.filter.UserAuthoritiesInfoFilter.doFilterInternal(UserAuthoritiesInfoFilter.java:37) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1797) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2026-06-01T04:51:13.921+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==>  Preparing: SELECT id,title,content,author_id,deleted,created_at,updated_at FROM blog WHERE id=? AND deleted=0
+2026-06-01T04:51:13.922+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : ==> Parameters: 3(Long)
+2026-06-01T04:51:13.922+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==>  Preparing: SELECT id,blog_id,parent_id,reply_to_user_id,content,user_id,deleted,created_at FROM reply WHERE deleted=0 AND (blog_id = ?) ORDER BY created_at ASC
+2026-06-01T04:51:13.923+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : ==> Parameters: 3(Long)
+2026-06-01T04:51:13.924+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.blog.mapper.BlogMapper.selectById  : <==      Total: 1
+2026-06-01T04:51:13.925+08:00 DEBUG 16208 --- [blog-service] [http-nio-38080-exec-8] c.w.d.b.mapper.ReplyMapper.selectList    : <==      Total: 6
+2026-06-01T04:51:13.932+08:00 ERROR 16208 --- [blog-service] [http-nio-38080-exec-7] c.w.d.c.e.GlobalExceptionHandler         : 服务器内部错误
+
+feign.FeignException$Unauthorized: [401] during [GET] to [http://user-service/user-service/user/2] [UserClient#getUser(Long)]: [{"code":401,"message":"请先登录","data":null}]
+	at feign.FeignException.clientErrorStatus(FeignException.java:245) ~[feign-core-13.6.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:223) ~[feign-core-13.6.1.jar:na]
+	at feign.FeignException.errorStatus(FeignException.java:213) ~[feign-core-13.6.1.jar:na]
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103) ~[feign-core-13.6.1.jar:na]
+	at feign.InvocationContext.decodeError(InvocationContext.java:133) ~[feign-core-13.6.1.jar:na]
+	at feign.InvocationContext.proceed(InvocationContext.java:80) ~[feign-core-13.6.1.jar:na]
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:69) ~[feign-core-13.6.1.jar:na]
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:109) ~[feign-core-13.6.1.jar:na]
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:53) ~[feign-core-13.6.1.jar:na]
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:104) ~[feign-core-13.6.1.jar:na]
+	at jdk.proxy2/jdk.proxy2.$Proxy103.getUser(Unknown Source) ~[na:na]
+	at com.wearsky.demo.blog.service.impl.BlogServiceImpl.getBlog(BlogServiceImpl.java:82) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor117.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.18.jar:6.2.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:724) ~[spring-aop-6.2.18.jar:6.2.18]
+	at com.wearsky.demo.blog.service.impl.BlogServiceImpl$$SpringCGLIB$$0.getBlog(<generated>) ~[classes/:na]
+	at com.wearsky.demo.blog.controller.BlogController.getBlog(BlogController.java:52) ~[classes/:na]
+	at jdk.internal.reflect.GeneratedMethodAccessor114.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.54.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.54.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:370) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at com.wearsky.demo.common.filter.UserAuthoritiesInfoFilter.doFilterInternal(UserAuthoritiesInfoFilter.java:37) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:379) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.10.jar:6.5.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.18.jar:6.2.18]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1797) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.54.jar:10.1.54]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+

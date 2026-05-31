@@ -1,0 +1,58 @@
+spring:
+  application:
+    name: click-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: xmm13622670
+    url: jdbc:mysql://localhost:3306/click_service?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: blog
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: blog
+    username: blog
+    password: 123456
+    listener:
+      simple:
+        prefetch: 1 # 每次取一条消息，处理完后再取下一条，不平均分，能者多劳
+
+server:
+  port: 48080
+
+mybatis-plus:
+  configuration:
+    cache-enabled: false # 二级缓存
+    default-enum-type-handler: com.baomidou.mybatisplus.core.handlers.MybatisEnumTypeHandler
+  mapper-locations: classpath*:/mapper/*.xml
+  type-aliases-package: com.wearsky.demo.click.domain.entity
+
+logging:
+  file:
+    name: ./log/${spring.application.name}.log
+  level:
+    com.wearsky.demo.click: debug
+
+# springdoc-openapi项目配置
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  group-configs:
+    - group: 'default'
+      paths-to-match: '/**'
+      packages-to-scan: com.wearsky.demo.click.controller
+  #正确识别query各属性为单独的参数
+  default-flat-param-object: true
+# knife4j的增强配置，不需要增强可以不配
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
