@@ -71,7 +71,7 @@ public class UserController {
     @Operation(summary = "删除用户", description = "根据ID删除用户")
     @DeleteMapping("/{id}")
     public ApiResponse<Void> deleteUser(@PathVariable Long id) {
-        return userServiceImpl.removeById(id) ?
+        return userServiceImpl.deleteUserById(id) ?
                 ApiResponse.success() : ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "删除失败");
     }
 

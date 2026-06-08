@@ -22,5 +22,11 @@ public interface IBlogService extends IService<Blog> {
 
     void likeBlog(Long blogId, Long userId);
 
+    void undoLikeBlog(Long blogId, Long userId);
+
     void dislikeBlog(Long blogId, Long userId);
+
+    void undoDislikeBlog(Long blogId, Long userId);
+
+    Boolean deleteBlogByAuthorId(Long authorId);
 }

@@ -24,6 +24,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -115,10 +116,33 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
     }
 
     @Override
+    public void undoLikeBlog(Long blogId, Long userId) {
+        Map<String, Long> map = new HashMap<>();
+        map.put("userId", userId);
+        map.put("blogId", blogId);
+        rabbitTemplate.convertAndSend("click", "undo.like.blog", map);
+    }
+
+    @Override
     public void dislikeBlog(Long blogId, Long userId) {
         Map<String, Long> map = new HashMap<>();
         map.put("userId", userId);
         map.put("blogId", blogId);
         rabbitTemplate.convertAndSend("click", "dislike.blog", map);
+    }
+
+    @Override
+    public void undoDislikeBlog(Long blogId, Long userId) {
+        Map<String, Long> map = new HashMap<>();
+        map.put("userId", userId);
+        map.put("blogId", blogId);
+        rabbitTemplate.convertAndSend("click", "undo.dislike.blog", map);
+    }
+
+    @Override
+    @Transactional
+    public Boolean deleteBlogByAuthorId(Long authorId) {
+        List<Long> ids = lambdaQuery().eq(Blog::getAuthorId, authorId).list().stream().map(Blog::getId).toList();
+        return removeByIds(ids);
     }
 }

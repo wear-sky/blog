@@ -66,11 +66,34 @@ public class BlogController {
         return ApiResponse.success();
     }
 
+    @Operation(summary = "取消博客点赞")
+    @PostMapping("/{id}/undoLike")
+    public ApiResponse<Void> undoLike(@PathVariable Long id) {
+        Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        blogService.undoLikeBlog(id, userId);
+        return ApiResponse.success();
+    }
+
     @Operation(summary = "给博客点踩")
     @PostMapping("/{id}/dislike")
     public ApiResponse<Void> dislike(@PathVariable Long id) {
         Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         blogService.dislikeBlog(id, userId);
         return ApiResponse.success();
+    }
+
+    @Operation(summary = "取消博客点踩")
+    @PostMapping("/{id}/undoDislike")
+    public ApiResponse<Void> undoDislike(@PathVariable Long id) {
+        Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        blogService.undoDislikeBlog(id, userId);
+        return ApiResponse.success();
+    }
+
+    @Operation(summary = "删除作者的所有博客")
+    @DeleteMapping("/author/{authorId}")
+    public ApiResponse<Void> deleteBogsByAuthorId(@PathVariable Long authorId) {
+        return blogService.deleteBlogByAuthorId(authorId)
+                ? ApiResponse.success() : ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "删除失败");
     }
 }

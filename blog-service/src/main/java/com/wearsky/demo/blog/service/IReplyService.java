@@ -17,5 +17,9 @@ public interface IReplyService extends IService<Reply> {
 
     void likeReply(Long replyId, Long userId);
 
+    void undoLikeReply(Long replyId, Long userId);
+
     void dislikeReply(Long replyId, Long userId);
+
+    void undoDislikeReply(Long replyId, Long userId);
 }

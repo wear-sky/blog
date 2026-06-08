@@ -32,10 +32,23 @@ public class ClickListener {
     public void listenClickLikeBlog(Map<String, Long> map) {
         log.debug("点赞：用户、{} 、博客{}", map.get("userId"), map.get("blogId"));
         ClickBlog clickBlog = new ClickBlog();
-        clickBlog.setUserId((Long) map.get("userId"));
-        clickBlog.setBlogId((Long) map.get("blogId"));
+        clickBlog.setUserId(map.get("userId"));
+        clickBlog.setBlogId(map.get("blogId"));
         clickBlog.setIsLike(Like.LIKE);
         clickBlogServiceImpl.clickLike(clickBlog);
+    }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "undo.like.blog", durable = "true"),
+            exchange = @Exchange(name = "click"),
+            key = "undo.like.blog"
+    ))
+    public void listenUndoLikeBlog(Map<String, Long> map) {
+        log.debug("取消点赞：用户、{} 、博客{}", map.get("userId"), map.get("blogId"));
+        ClickBlog clickBlog = new ClickBlog();
+        clickBlog.setUserId(map.get("userId"));
+        clickBlog.setBlogId(map.get("blogId"));
+        clickBlogServiceImpl.undoLike(clickBlog);
     }
 
     @RabbitListener(bindings = @QueueBinding(
@@ -46,10 +59,23 @@ public class ClickListener {
     public void listenClickDislikeBlog(Map<String, Long> map) {
         log.debug("点踩：用户、{} 、博客{}", map.get("userId"), map.get("blogId"));
         ClickBlog clickBlog = new ClickBlog();
-        clickBlog.setUserId((Long) map.get("userId"));
-        clickBlog.setBlogId((Long) map.get("blogId"));
+        clickBlog.setUserId(map.get("userId"));
+        clickBlog.setBlogId(map.get("blogId"));
         clickBlog.setIsLike(Like.DISLIKE);
         clickBlogServiceImpl.clickDislike(clickBlog);
+    }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "undo.dislike.blog", durable = "true"),
+            exchange = @Exchange(name = "click"),
+            key = "undo.dislike.blog"
+    ))
+    public void listenUndoDislikeBlog(Map<String, Long> map) {
+        log.debug("取消点踩：用户、{} 、博客{}", map.get("userId"), map.get("blogId"));
+        ClickBlog clickBlog = new ClickBlog();
+        clickBlog.setUserId(map.get("userId"));
+        clickBlog.setBlogId(map.get("blogId"));
+        clickBlogServiceImpl.undoDislike(clickBlog);
     }
 
     @RabbitListener(bindings = @QueueBinding(
@@ -60,10 +86,23 @@ public class ClickListener {
     public void listenClickLikeReply(Map<String, Long> map) {
         log.debug("点赞：用户、{} 、评论{}", map.get("userId"), map.get("replyId"));
         ClickReply clickReply = new ClickReply();
-        clickReply.setUserId((Long) map.get("userId"));
-        clickReply.setReplyId((Long) map.get("replyId"));
+        clickReply.setUserId(map.get("userId"));
+        clickReply.setReplyId(map.get("replyId"));
         clickReply.setIsLike(Like.LIKE);
         clickReplyServiceImpl.clickLike(clickReply);
+    }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "undo.like.reply", durable = "true"),
+            exchange = @Exchange(name = "click"),
+            key = "undo.like.reply"
+    ))
+    public void listenUndoLikeReply(Map<String, Long> map) {
+        log.debug("取消点赞：用户、{} 、评论{}", map.get("userId"), map.get("replyId"));
+        ClickReply clickReply = new ClickReply();
+        clickReply.setUserId(map.get("userId"));
+        clickReply.setReplyId(map.get("replyId"));
+        clickReplyServiceImpl.undoLike(clickReply);
     }
 
     @RabbitListener(bindings = @QueueBinding(
@@ -74,9 +113,22 @@ public class ClickListener {
     public void listenClickDislikeReply(Map<String, Long> map) {
         log.debug("点踩：用户、{} 、评论{}", map.get("userId"), map.get("replyId"));
         ClickReply clickReply = new ClickReply();
-        clickReply.setUserId((Long) map.get("userId"));
-        clickReply.setReplyId((Long) map.get("replyId"));
+        clickReply.setUserId(map.get("userId"));
+        clickReply.setReplyId(map.get("replyId"));
         clickReply.setIsLike(Like.DISLIKE);
         clickReplyServiceImpl.clickDislike(clickReply);
+    }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "undo.dislike.reply", durable = "true"),
+            exchange = @Exchange(name = "click"),
+            key = "undo.dislike.reply"
+    ))
+    public void listenUndoDislikeReply(Map<String, Long> map) {
+        log.debug("取消点踩：用户、{} 、评论{}", map.get("userId"), map.get("replyId"));
+        ClickReply clickReply = new ClickReply();
+        clickReply.setUserId(map.get("userId"));
+        clickReply.setReplyId(map.get("replyId"));
+        clickReplyServiceImpl.undoDislike(clickReply);
     }
 }

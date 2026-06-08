@@ -27,3 +27,11 @@ export function likeBlog(id) {
 export function dislikeBlog(id) {
   return request.post(`/blog-service/blog/${id}/dislike`)
 }
+
+export function undoLikeBlog(id) {
+  return request.post(`/blog-service/blog/${id}/undoLike`)
+}
+
+export function undoDislikeBlog(id) {
+  return request.post(`/blog-service/blog/${id}/undoDislike`)
+}

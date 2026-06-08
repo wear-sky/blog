@@ -10,9 +10,15 @@ public interface ClickReplyService extends IService<ClickReply> {
 
     void clickLike(ClickReply clickReply);
 
+    void undoLike(ClickReply clickReply);
+
     void clickDislike(ClickReply clickReply);
+
+    void undoDislike(ClickReply clickReply);
 
     List<ClickReplyCount> getClickCount4LikeReplies(List<Long> replyIds);
 
     List<ClickReplyCount> getClickCount4DislikeReplies(List<Long> replyIds);
+
+    List<ClickReply> getByReplyIdsAndUserId(List<Long> replyIds, Long userId);
 }

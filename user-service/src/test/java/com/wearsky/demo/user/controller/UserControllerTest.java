@@ -1,37 +1,39 @@
 package com.wearsky.demo.user.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wearsky.demo.user.config.SecurityConfig;
+import com.wearsky.demo.common.domain.vo.UserVO;
 import com.wearsky.demo.user.domain.dto.LoginDTO;
 import com.wearsky.demo.user.domain.dto.RegisterDTO;
 import com.wearsky.demo.user.domain.dto.UpdateUserDTO;
 import com.wearsky.demo.user.domain.entity.User;
 import com.wearsky.demo.user.domain.query.UserQuery;
 import com.wearsky.demo.user.domain.vo.UserPageVO;
-import com.wearsky.demo.user.domain.vo.UserVO;
 import com.wearsky.demo.user.service.IUserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.context.annotation.Import;
-import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.*;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(UserController.class)
-@Import(SecurityConfig.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+@ActiveProfiles("test")
 class UserControllerTest {
 
     @Autowired
@@ -134,7 +136,7 @@ class UserControllerTest {
         // Given
         UserPageVO pageVO = new UserPageVO();
         pageVO.setTotal(1L);
-        pageVO.setUsers(Arrays.asList(testUserVO));
+        pageVO.setUsers(Collections.singletonList(testUserVO));
 
         when(userServiceImpl.queryUser(any(UserQuery.class))).thenReturn(pageVO);
 

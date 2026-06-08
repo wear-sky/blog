@@ -1,18 +1,10 @@
 <script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
-import {
-  NAvatar,
-  NText,
-  NButton,
-  NSpace,
-  NIcon,
-  useMessage,
-  useDialog
-} from 'naive-ui'
-import { TrashOutline, ChatbubbleOutline, ThumbsUpOutline, ThumbsDownOutline } from '@vicons/ionicons5'
-import { deleteReply } from '@/api/reply'
+import {ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {useAuthStore} from '@/stores/auth'
+import {NAvatar, NButton, NIcon, NText, useDialog, useMessage} from 'naive-ui'
+import {ChatbubbleOutline, TrashOutline} from '@vicons/ionicons5'
+import {deleteReply} from '@/api/reply'
 import ReplyForm from './ReplyForm.vue'
 import ClickButtons from './ClickButtons.vue'
 
@@ -20,7 +12,8 @@ const props = defineProps({
   replies: { type: Array, required: true },
   blogId: { type: Number, required: true },
   userNames: { type: Object, default: () => ({}) },
-  replyClickCounts: { type: Object, default: () => ({}) }
+  replyClickCounts: { type: Object, default: () => ({}) },
+  replyClickStatuses: { type: Object, default: () => ({}) }
 })
 
 const emit = defineEmits(['refresh'])
@@ -52,6 +45,10 @@ function getReplyLikes(replyId) {
 
 function getReplyDislikes(replyId) {
   return props.replyClickCounts[replyId]?.dislikes ?? 0
+}
+
+function getReplyClickStatus(replyId) {
+  return props.replyClickStatuses[replyId] || null
 }
 
 function toggleReply(replyId) {
@@ -151,17 +148,13 @@ function formatDate(dateStr) {
               </template>
               删除
             </NButton>
-            <div class="inline-stats">
-              <span class="stat-item">
-                <NIcon :component="ThumbsUpOutline" :size="13" />
-                {{ getReplyLikes(reply.id) }}
-              </span>
-              <span class="stat-item">
-                <NIcon :component="ThumbsDownOutline" :size="13" />
-                {{ getReplyDislikes(reply.id) }}
-              </span>
-            </div>
-            <ClickButtons :target-id="reply.id" type="reply" />
+            <ClickButtons
+              :target-id="reply.id"
+              type="reply"
+              :initial-like-count="getReplyLikes(reply.id)"
+              :initial-dislike-count="getReplyDislikes(reply.id)"
+              :click-status="getReplyClickStatus(reply.id)"
+            />
           </div>
 
           <ReplyForm
@@ -181,6 +174,7 @@ function formatDate(dateStr) {
           :blog-id="blogId"
           :user-names="userNames"
           :reply-click-counts="replyClickCounts"
+          :reply-click-statuses="replyClickStatuses"
           @refresh="emit('refresh')"
         />
       </div>
@@ -250,21 +244,6 @@ function formatDate(dateStr) {
   gap: 8px;
   margin-top: 4px;
   flex-wrap: wrap;
-}
-
-.inline-stats {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-left: 4px;
-}
-
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  font-size: 0.75rem;
-  color: #8a8478;
 }
 
 .reply-children {

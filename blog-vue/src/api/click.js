@@ -19,3 +19,11 @@ export function getReplyDislikeCounts(replyIds) {
     params: { replyIds }
   })
 }
+
+export function checkClickedBlog(blogId) {
+  return request.get(`/click-service/click/checkClickedBlog/${blogId}`)
+}
+
+export function checkClickedReplies(replyIds) {
+  return request.get(`/click-service/click/checkClickedReplies/${replyIds.join(',')}`)
+}

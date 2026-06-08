@@ -18,7 +18,7 @@ import {
 import { CreateOutline, TrashOutline } from '@vicons/ionicons5'
 import { getBlogDetail, deleteBlog } from '@/api/blog'
 import { getReplyTree } from '@/api/reply'
-import { getReplyLikeCounts, getReplyDislikeCounts } from '@/api/click'
+import { getReplyLikeCounts, getReplyDislikeCounts, checkClickedBlog, checkClickedReplies } from '@/api/click'
 import { getUserById } from '@/api/user'
 import ReplyTree from '@/components/ReplyTree.vue'
 import ReplyForm from '@/components/ReplyForm.vue'
@@ -39,6 +39,10 @@ const error = ref('')
 const userNames = ref({})
 // 评论点赞/踩映射 { replyId: { likes, dislikes } }
 const replyClickCounts = ref({})
+// 博客点赞/踩状态: null, 'like', 'dislike'
+const blogClickStatus = ref(null)
+// 评论点赞/踩状态映射 { replyId: 'like' | 'dislike' | null }
+const replyClickStatuses = ref({})
 
 const blogId = computed(() => Number(route.params.id))
 const isAuthor = computed(() => {
@@ -130,6 +134,41 @@ async function fetchReplyClickCounts(repliesList) {
   replyClickCounts.value = map
 }
 
+// 查询当前用户对博客的点赞/踩状态
+async function fetchBlogClickStatus() {
+  if (!auth.isLoggedIn) return
+  try {
+    const result = await checkClickedBlog(blogId.value)
+    if (result && result.isLike !== undefined && result.isLike !== null) {
+      blogClickStatus.value = result.isLike === 1 ? 'like' : 'dislike'
+    } else {
+      blogClickStatus.value = null
+    }
+  } catch {
+    blogClickStatus.value = null
+  }
+}
+
+// 查询当前用户对评论的点赞/踩状态
+async function fetchReplyClickStatuses(repliesList) {
+  if (!auth.isLoggedIn) return
+  const replyIds = collectReplyIds(repliesList)
+  if (!replyIds.length) return
+
+  try {
+    const result = await checkClickedReplies(replyIds)
+    const map = {}
+    for (const item of (result || [])) {
+      if (item && item.replyId !== undefined && item.isLike !== undefined && item.isLike !== null) {
+        map[item.replyId] = item.isLike === 1 ? 'like' : 'dislike'
+      }
+    }
+    replyClickStatuses.value = map
+  } catch {
+    replyClickStatuses.value = {}
+  }
+}
+
 async function fetchBlog() {
   loading.value = true
   error.value = ''
@@ -141,13 +180,14 @@ async function fetchBlog() {
     blog.value = blogData
     replies.value = replyData || []
 
-    // 并行获取评论用户信息和点赞数据
+    // 并行获取评论用户信息、点赞数据和用户点赞/踩状态
+    const promises = [fetchBlogClickStatus()]
     if (replyData?.length) {
-      await Promise.all([
-        fetchUserNames(replyData),
-        fetchReplyClickCounts(replyData)
-      ])
+      promises.push(fetchUserNames(replyData))
+      promises.push(fetchReplyClickCounts(replyData))
+      promises.push(fetchReplyClickStatuses(replyData))
     }
+    await Promise.all(promises)
   } catch (e) {
     error.value = e.message || '加载失败'
   } finally {
@@ -253,7 +293,11 @@ onMounted(fetchBlog)
           <NDivider />
 
           <!-- Click buttons -->
-          <ClickButtons :target-id="blogId" type="blog" />
+          <ClickButtons
+            :target-id="blogId"
+            type="blog"
+            :click-status="blogClickStatus"
+          />
         </NCard>
 
         <!-- Replies Section -->
@@ -279,6 +323,7 @@ onMounted(fetchBlog)
               :blog-id="blogId"
               :user-names="userNames"
               :reply-click-counts="replyClickCounts"
+              :reply-click-statuses="replyClickStatuses"
               @refresh="fetchBlog"
             />
           </div>

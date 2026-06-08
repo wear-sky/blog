@@ -22,4 +22,6 @@ public interface IUserService extends IService<User> {
 
     UserPageVO queryUser(UserQuery query);
 
+    Boolean deleteUserById(Long id);
+
 }

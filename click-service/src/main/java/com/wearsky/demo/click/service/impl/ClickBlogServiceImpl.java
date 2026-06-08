@@ -25,6 +25,14 @@ public class ClickBlogServiceImpl extends ServiceImpl<ClickBlogMapper, ClickBlog
     }
 
     @Override
+    public void undoLike(ClickBlog clickBlog) {
+        ClickBlog existed = getByBlogIdAndUserId(clickBlog.getBlogId(), clickBlog.getUserId());
+        if (existed != null && existed.getIsLike() == Like.LIKE) {
+            removeById(existed);
+        }
+    }
+
+    @Override
     @Transactional(rollbackFor = Exception.class, isolation = Isolation.REPEATABLE_READ)
     public void clickDislike(ClickBlog clickBlog) {
         ClickBlog existed = getByBlogIdAndUserId(clickBlog.getBlogId(), clickBlog.getUserId());
@@ -33,6 +41,14 @@ public class ClickBlogServiceImpl extends ServiceImpl<ClickBlogMapper, ClickBlog
         } else if (existed.getIsLike() == Like.LIKE) {
             existed.setIsLike(Like.DISLIKE);
             updateById(existed);
+        }
+    }
+
+    @Override
+    public void undoDislike(ClickBlog clickBlog) {
+        ClickBlog existed = getByBlogIdAndUserId(clickBlog.getBlogId(), clickBlog.getUserId());
+        if (existed != null && existed.getIsLike() == Like.DISLIKE) {
+            removeById(existed);
         }
     }
 
@@ -46,7 +62,8 @@ public class ClickBlogServiceImpl extends ServiceImpl<ClickBlogMapper, ClickBlog
         return lambdaQuery().eq(ClickBlog::getBlogId, blogId).eq(ClickBlog::getIsLike, Like.DISLIKE.getCode()).count();
     }
 
-    private ClickBlog getByBlogIdAndUserId(Long blogId, Long userId) {
+    @Override
+    public ClickBlog getByBlogIdAndUserId(Long blogId, Long userId) {
         return lambdaQuery().eq(ClickBlog::getBlogId, blogId).eq(ClickBlog::getUserId, userId).one();
     }
 }

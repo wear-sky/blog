@@ -19,3 +19,11 @@ export function likeReply(id) {
 export function dislikeReply(id) {
   return request.post(`/blog-service/reply/${id}/dislike`)
 }
+
+export function undoLikeReply(id) {
+  return request.post(`/blog-service/reply/${id}/undoLike`)
+}
+
+export function undoDislikeReply(id) {
+  return request.post(`/blog-service/reply/${id}/undoDislike`)
+}

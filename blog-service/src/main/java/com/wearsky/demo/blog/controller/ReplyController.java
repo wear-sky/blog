@@ -51,11 +51,27 @@ public class ReplyController {
         return ApiResponse.success();
     }
 
+    @Operation(summary = "取消评论点赞")
+    @PostMapping("/{id}/undoLike")
+    public ApiResponse<Void> undoLike(@PathVariable Long id) {
+        Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        replyService.undoLikeReply(id, userId);
+        return ApiResponse.success();
+    }
+
     @Operation(summary = "给评论点踩")
     @PostMapping("/{id}/dislike")
     public ApiResponse<Void> dislike(@PathVariable Long id) {
         Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         replyService.dislikeReply(id, userId);
+        return ApiResponse.success();
+    }
+
+    @Operation(summary = "取消评论点踩")
+    @PostMapping("/{id}/undoDislike")
+    public ApiResponse<Void> undoDislike(@PathVariable Long id) {
+        Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        replyService.undoDislikeReply(id, userId);
         return ApiResponse.success();
     }
 }

@@ -1,6 +1,5 @@
 package com.wearsky.demo.click.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.wearsky.demo.click.domain.entity.ClickReply;
 import com.wearsky.demo.click.domain.entity.ClickReplyCount;
@@ -35,6 +34,14 @@ public class ClickReplyServiceImpl extends ServiceImpl<ClickReplyMapper, ClickRe
     }
 
     @Override
+    public void undoLike(ClickReply clickReply) {
+        ClickReply existed = getByReplyIdAndUserId(clickReply.getReplyId(), clickReply.getUserId());
+        if (existed != null && existed.getIsLike() == Like.LIKE) {
+            removeById(existed);
+        }
+    }
+
+    @Override
     @Transactional(rollbackFor = Exception.class, isolation = Isolation.REPEATABLE_READ)
     public void clickDislike(ClickReply clickReply) {
         ClickReply existed = getByReplyIdAndUserId(clickReply.getReplyId(), clickReply.getUserId());
@@ -47,6 +54,14 @@ public class ClickReplyServiceImpl extends ServiceImpl<ClickReplyMapper, ClickRe
     }
 
     @Override
+    public void undoDislike(ClickReply clickReply) {
+        ClickReply existed = getByReplyIdAndUserId(clickReply.getReplyId(), clickReply.getUserId());
+        if (existed != null && existed.getIsLike() == Like.DISLIKE) {
+            removeById(existed);
+        }
+    }
+
+    @Override
     public List<ClickReplyCount> getClickCount4LikeReplies(List<Long> replyIds) {
         return clickReplyMapper.getClickCount4LikeReplies(replyIds);
     }
@@ -54,6 +69,11 @@ public class ClickReplyServiceImpl extends ServiceImpl<ClickReplyMapper, ClickRe
     @Override
     public List<ClickReplyCount> getClickCount4DislikeReplies(List<Long> replyIds) {
         return clickReplyMapper.getClickCount4DislikeReplies(replyIds);
+    }
+
+    @Override
+    public List<ClickReply> getByReplyIdsAndUserId(List<Long> replyIds, Long userId) {
+        return lambdaQuery().in(ClickReply::getReplyId, replyIds).eq(ClickReply::getUserId, userId).list();
     }
 
     private ClickReply getByReplyIdAndUserId(Long replyId, Long userId) {

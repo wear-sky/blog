@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.wearsky.demo.common.client.BlogClient;
 import com.wearsky.demo.common.domain.vo.UserVO;
 import com.wearsky.demo.common.exception.BaseException;
 import com.wearsky.demo.user.common.JwtUtil;
@@ -20,6 +21,7 @@ import com.wearsky.demo.user.mapper.UserRoleMapper;
 import com.wearsky.demo.user.service.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.seata.spring.annotation.GlobalTransactional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,6 +43,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private final PermissionMapper permissionMapper;
 
     private final JwtUtil jwtUtil;
+
+    private final BlogClient blogClient;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -111,5 +115,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         userPageVO.setTotal(userPage.getTotal());
         userPageVO.setUsers(BeanUtil.copyToList(userPage.getRecords(), UserVO.class));
         return userPageVO;
+    }
+
+    @Override
+    @GlobalTransactional(rollbackFor = Exception.class)
+    public Boolean deleteUserById(Long id) {
+        blogClient.deleteBogsByAuthorId(id);
+        return removeById(id);
     }
 }

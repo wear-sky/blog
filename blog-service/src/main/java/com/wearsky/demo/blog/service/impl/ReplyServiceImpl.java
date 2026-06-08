@@ -76,10 +76,6 @@ public class ReplyServiceImpl extends ServiceImpl<ReplyMapper, Reply> implements
             return Collections.emptyList();
         }
 
-        // 按 parentId 分组
-        Map<Long, List<Reply>> parentIdMap = allReplies.stream()
-                .collect(Collectors.groupingBy(r -> r.getParentId() == null ? 0L : r.getParentId()));
-
         // 转换为 ReplyTreeVO
         List<ReplyTreeVO> allTreeVOs = allReplies.stream()
                 .map(r -> BeanUtil.toBean(r, ReplyTreeVO.class))
@@ -117,10 +113,26 @@ public class ReplyServiceImpl extends ServiceImpl<ReplyMapper, Reply> implements
     }
 
     @Override
+    public void undoLikeReply(Long replyId, Long userId) {
+        Map<String, Long> map = new HashMap<>();
+        map.put("userId", userId);
+        map.put("replyId", replyId);
+        rabbitTemplate.convertAndSend("click", "undo.like.reply", map);
+    }
+
+    @Override
     public void dislikeReply(Long replyId, Long userId) {
         Map<String, Long> map = new HashMap<>();
         map.put("userId", userId);
         map.put("replyId", replyId);
         rabbitTemplate.convertAndSend("click", "dislike.reply", map);
+    }
+
+    @Override
+    public void undoDislikeReply(Long replyId, Long userId) {
+        Map<String, Long> map = new HashMap<>();
+        map.put("userId", userId);
+        map.put("replyId", replyId);
+        rabbitTemplate.convertAndSend("click", "undo.dislike.reply", map);
     }
 }
