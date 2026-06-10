@@ -117,9 +117,7 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
                 Map<Long, UserVO> authorMap = response.getData().stream()
                         .collect(Collectors.toMap(UserVO::getId, user -> user));
 
-                blogVOs.forEach(blogVO -> {
-                    blogVO.setAuthor(authorMap.get(blogVO.getAuthorId()));
-                });
+                blogVOs.forEach(blogVO -> blogVO.setAuthor(authorMap.get(blogVO.getAuthorId())));
             }
         }
 

@@ -1,8 +1,8 @@
 <script setup>
-import { computed } from 'vue'
-import { useRouter } from 'vue-router'
-import { NCard, NText, NSpace, NIcon, NAvatar } from 'naive-ui'
-import { ArrowForwardOutline } from '@vicons/ionicons5'
+import {computed} from 'vue'
+import {useRouter} from 'vue-router'
+import {NAvatar, NCard, NIcon, NText} from 'naive-ui'
+import {ArrowForwardOutline} from '@vicons/ionicons5'
 
 const props = defineProps({
   blog: { type: Object, required: true },

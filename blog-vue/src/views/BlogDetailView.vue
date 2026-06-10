@@ -1,25 +1,13 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useAuthStore } from '@/stores/auth'
-import {
-  NCard,
-  NText,
-  NButton,
-  NSpace,
-  NSpin,
-  NResult,
-  NAvatar,
-  NDivider,
-  NIcon,
-  useMessage,
-  useDialog
-} from 'naive-ui'
-import { CreateOutline, TrashOutline } from '@vicons/ionicons5'
-import { getBlogDetail, deleteBlog } from '@/api/blog'
-import { getReplyTree } from '@/api/reply'
-import { getReplyLikeCounts, getReplyDislikeCounts, checkClickedBlog, checkClickedReplies } from '@/api/click'
-import { getUserById } from '@/api/user'
+import {computed, onMounted, ref} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {useAuthStore} from '@/stores/auth'
+import {NAvatar, NButton, NCard, NDivider, NIcon, NResult, NSpace, NSpin, NText, useDialog, useMessage} from 'naive-ui'
+import {CreateOutline, TrashOutline} from '@vicons/ionicons5'
+import {deleteBlog, getBlogDetail} from '@/api/blog'
+import {getReplyTree} from '@/api/reply'
+import {checkClickedBlog, checkClickedReplies, getReplyDislikeCounts, getReplyLikeCounts} from '@/api/click'
+import {getUserById} from '@/api/user'
 import ReplyTree from '@/components/ReplyTree.vue'
 import ReplyForm from '@/components/ReplyForm.vue'
 import ClickButtons from '@/components/ClickButtons.vue'
