@@ -8,7 +8,6 @@ public class ClickReplyCount {
 
     private Long replyId;
 
-    @TableField(value = "COUNT(*)")
     private Long count;
 
 }

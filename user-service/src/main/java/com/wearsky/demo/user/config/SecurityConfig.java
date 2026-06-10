@@ -19,7 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
-@EnableMethodSecurity
+@EnableMethodSecurity(jsr250Enabled = true) // 启用@PermitAll和@PreAuthorize注解
 @AllArgsConstructor
 public class SecurityConfig {
 
@@ -43,8 +43,14 @@ public class SecurityConfig {
                         .requestMatchers(
                                 HttpMethod.POST, "/user-service/user", "/user-service/user/login").permitAll()
                         .requestMatchers(
-                                "/doc.html", "/webjars/**", "/v3/**", "/swagger-resources/**").permitAll() // 放行swagger
-                        .anyRequest().authenticated())
+                                HttpMethod.GET, "/user-service/user/{id:\\d+}", "/user-service/user/ids").permitAll()
+                        .requestMatchers(
+                                "/doc.html", "/webjars/**" // 放行knife4j
+                                , "/v3/**" // 放行OpenAPI JSON文档
+                                , "/swagger-ui/**") // 放行swagger
+                        .permitAll()
+                        .anyRequest().authenticated()
+                )
                 // 设置鉴权失败的异常捕捉处理
                 // accessDenied由全局异常捕捉管理
                 .exceptionHandling(handlingConfigurer -> handlingConfigurer

@@ -284,11 +284,7 @@ onMounted(fetchBlog)
           <NDivider />
 
           <!-- Content -->
-          <div class="blog-content">
-            <p v-for="(paragraph, i) in blog.content.split('\n')" :key="i" class="content-paragraph">
-              {{ paragraph }}
-            </p>
-          </div>
+          <div class="blog-content" v-html="blog.content"></div>
 
           <NDivider />
 
@@ -408,14 +404,87 @@ onMounted(fetchBlog)
   line-height: 2;
   color: #3d3a33;
   padding: 8px 0;
+  white-space: pre-wrap;
 }
 
 .content-paragraph {
   margin-bottom: 1.4em;
 }
 
-.content-paragraph:last-child {
+.blog-content :deep(p) {
+  margin-bottom: 1.4em;
+}
+
+.blog-content :deep(p:last-child) {
   margin-bottom: 0;
+}
+
+.blog-content :deep(h1),
+.blog-content :deep(h2),
+.blog-content :deep(h3) {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  color: #3d3a33;
+}
+
+.blog-content :deep(h1) { font-size: 1.8rem; }
+.blog-content :deep(h2) { font-size: 1.5rem; }
+.blog-content :deep(h3) { font-size: 1.3rem; }
+
+.blog-content :deep(ul),
+.blog-content :deep(ol) {
+  padding-left: 2em;
+  margin-bottom: 1em;
+}
+
+.blog-content :deep(li) {
+  margin-bottom: 0.5em;
+}
+
+.blog-content :deep(blockquote) {
+  border-left: 3px solid #5b8a6e;
+  padding-left: 1em;
+  color: #666;
+  margin: 1em 0;
+  font-style: italic;
+}
+
+.blog-content :deep(pre) {
+  background: #f5f5f5;
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.blog-content :deep(code) {
+  background: #f0f0f0;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.blog-content :deep(pre code) {
+  background: none;
+  padding: 0;
+}
+
+.blog-content :deep(img) {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1em 0;
+}
+
+.blog-content :deep(a) {
+  color: #5b8a6e;
+  text-decoration: underline;
+}
+
+.blog-content :deep(hr) {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 2em 0;
 }
 
 .replies-card {

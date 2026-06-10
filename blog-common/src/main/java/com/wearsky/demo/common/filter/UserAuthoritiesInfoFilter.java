@@ -32,7 +32,6 @@ public class UserAuthoritiesInfoFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
                                     FilterChain filterChain) throws ServletException, IOException {
         String userAuthoritiesInfo = request.getHeader(USER_AUTHORITIES_INFO_HEADER);
-        log.debug("userAuthoritiesInfo:{}", userAuthoritiesInfo);
         if (StringUtils.isBlank(userAuthoritiesInfo)) {
             filterChain.doFilter(request, response);
             return;

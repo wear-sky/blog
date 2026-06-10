@@ -4,6 +4,7 @@ import io.jsonwebtoken.Jwts;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
@@ -17,6 +18,7 @@ import java.util.UUID;
 
 @Slf4j
 @Component
+@RefreshScope
 public class JwtUtil {
 
     @Value("${jwt.private-key-path}")
@@ -34,6 +36,7 @@ public class JwtUtil {
     }
 
     public String generateToken(Long userId, List<String> authorities) {
+        log.debug("令牌过期时间：{}ms", expirationMs);
         Date now = new Date();
         Date expiry = new Date(now.getTime() + expirationMs);
         return Jwts.builder()

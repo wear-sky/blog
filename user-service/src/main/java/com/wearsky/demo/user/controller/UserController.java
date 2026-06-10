@@ -3,13 +3,13 @@ package com.wearsky.demo.user.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.alibaba.cloud.commons.lang.StringUtils;
+import com.wearsky.demo.common.domain.vo.ApiResponse;
 import com.wearsky.demo.common.domain.vo.UserVO;
 import com.wearsky.demo.user.domain.dto.LoginDTO;
 import com.wearsky.demo.user.domain.dto.RegisterDTO;
 import com.wearsky.demo.user.domain.dto.UpdateUserDTO;
 import com.wearsky.demo.user.domain.entity.User;
 import com.wearsky.demo.user.domain.query.UserQuery;
-import com.wearsky.demo.common.domain.vo.ApiResponse;
 import com.wearsky.demo.user.domain.vo.UserPageVO;
 import com.wearsky.demo.user.service.IUserService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,6 +22,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @Tag(name = "用户模块")
@@ -88,5 +90,12 @@ public class UserController {
     public ApiResponse<UserVO> getUser(@PathVariable Long id) {
         User user = userServiceImpl.getById(id);
         return ApiResponse.success(BeanUtil.toBean(user, UserVO.class));
+    }
+
+    @Operation(summary = "获取用户信息列表", description = "根据用户ID列表获取用户信息列表")
+    @GetMapping("/ids")
+    public ApiResponse<List<UserVO>> getUserByIds(@RequestParam List<Long> ids) {
+        List<User> users = userServiceImpl.getbyids(ids);
+        return ApiResponse.success(BeanUtil.copyToList(users, UserVO.class));
     }
 }

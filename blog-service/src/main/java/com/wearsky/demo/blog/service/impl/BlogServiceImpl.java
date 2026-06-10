@@ -26,6 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -101,9 +102,30 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
 
         Page<Blog> blogPage = this.page(page, wrapper);
 
+        List<Blog> blogs = blogPage.getRecords();
+        List<BlogVO> blogVOs = BeanUtil.copyToList(blogs, BlogVO.class);
+
+        // 批量获取作者信息
+        if (!blogs.isEmpty()) {
+            List<Long> authorIds = blogs.stream()
+                    .map(Blog::getAuthorId)
+                    .distinct()
+                    .toList();
+
+            ApiResponse<List<UserVO>> response = userClient.getUserByIds(authorIds);
+            if (response.getData() != null) {
+                Map<Long, UserVO> authorMap = response.getData().stream()
+                        .collect(Collectors.toMap(UserVO::getId, user -> user));
+
+                blogVOs.forEach(blogVO -> {
+                    blogVO.setAuthor(authorMap.get(blogVO.getAuthorId()));
+                });
+            }
+        }
+
         BlogPageVO vo = new BlogPageVO();
         vo.setTotal(blogPage.getTotal());
-        vo.setBlogs(BeanUtil.copyToList(blogPage.getRecords(), BlogVO.class));
+        vo.setBlogs(blogVOs);
         return vo;
     }
 

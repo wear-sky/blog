@@ -34,7 +34,10 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/click-service/**").permitAll()
                         .requestMatchers(
-                                "/doc.html", "/webjars/**", "/v3/**", "/swagger-resources/**").permitAll()
+                                "/doc.html", "/webjars/**" // 放行knife4j
+                                , "/v3/**" // 放行OpenAPI JSON文档
+                                , "/swagger-ui/**") // 放行swagger
+                        .permitAll()
                         .anyRequest().authenticated())
                 .exceptionHandling(handlingConfigurer -> handlingConfigurer
                         .authenticationEntryPoint((request, response,

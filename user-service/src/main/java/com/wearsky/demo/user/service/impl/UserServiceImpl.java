@@ -123,4 +123,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         blogClient.deleteBogsByAuthorId(id);
         return removeById(id);
     }
+
+    @Override
+    public List<User> getbyids(List<Long> ids) {
+        return lambdaQuery().in(User::getId, ids).list();
+    }
 }

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { NCard, NText, NSpace, NIcon } from 'naive-ui'
+import { NCard, NText, NSpace, NIcon, NAvatar } from 'naive-ui'
 import { ArrowForwardOutline } from '@vicons/ionicons5'
 
 const props = defineProps({
@@ -12,7 +12,11 @@ const props = defineProps({
 const router = useRouter()
 
 const excerpt = computed(() => {
-  const text = props.blog.content || ''
+  const html = props.blog.content || ''
+  // 去除 HTML 标签，提取纯文本
+  const div = document.createElement('div')
+  div.innerHTML = html
+  const text = div.textContent || div.innerText || ''
   return text.length > 180 ? text.slice(0, 180) + '...' : text
 })
 
@@ -28,6 +32,15 @@ const formattedDate = computed(() => {
 
 const animDelay = computed(() => `${props.index * 0.06}s`)
 
+const authorName = computed(() => {
+  const author = props.blog.author
+  return author?.nickname || author?.username || '未知作者'
+})
+
+const authorInitial = computed(() => {
+  return authorName.value.charAt(0).toUpperCase()
+})
+
 function goDetail() {
   router.push(`/blog/${props.blog.id}`)
 }
@@ -41,6 +54,21 @@ function goDetail() {
     @click="goDetail"
   >
     <div class="card-inner">
+      <div class="card-author" v-if="blog.author">
+        <NAvatar
+          round
+          :size="24"
+          :style="{
+            backgroundColor: '#5b8a6e',
+            color: '#fff',
+            fontSize: '12px',
+            fontWeight: '700'
+          }"
+        >
+          {{ authorInitial }}
+        </NAvatar>
+        <NText class="author-name">{{ authorName }}</NText>
+      </div>
       <h2 class="card-title">{{ blog.title }}</h2>
       <p class="card-excerpt">{{ excerpt }}</p>
       <div class="card-meta">
@@ -79,6 +107,18 @@ function goDetail() {
 
 .card-inner {
   padding: 4px 0;
+}
+
+.card-author {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.author-name {
+  font-size: 0.85rem;
+  color: #6b665c;
 }
 
 .card-title {

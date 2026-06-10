@@ -1,10 +1,12 @@
 package com.wearsky.demo.user.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.wearsky.demo.user.domain.dto.LoginDTO;
 import com.wearsky.demo.user.domain.entity.User;
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.wearsky.demo.user.domain.query.UserQuery;
 import com.wearsky.demo.user.domain.vo.UserPageVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -24,4 +26,5 @@ public interface IUserService extends IService<User> {
 
     Boolean deleteUserById(Long id);
 
+    List<User> getbyids(List<Long> ids);
 }

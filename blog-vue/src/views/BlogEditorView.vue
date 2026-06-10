@@ -12,6 +12,7 @@ import {
   useMessage
 } from 'naive-ui'
 import { getBlogDetail, createBlog, updateBlog } from '@/api/blog'
+import RichTextEditor from '@/components/RichTextEditor.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -45,12 +46,19 @@ async function fetchBlog() {
   }
 }
 
+// 检查富文本是否只有空标签
+function isContentEmpty(html) {
+  const div = document.createElement('div')
+  div.innerHTML = html
+  return !div.textContent?.trim()
+}
+
 async function handleSubmit() {
   if (!form.value.title.trim()) {
     message.warning('请输入标题')
     return
   }
-  if (!form.value.content.trim()) {
+  if (!form.value.content || isContentEmpty(form.value.content)) {
     message.warning('请输入内容')
     return
   }
@@ -124,14 +132,7 @@ onMounted(fetchBlog)
 
         <div class="form-group">
           <NText class="form-label">内容</NText>
-          <NInput
-            v-model:value="form.content"
-            type="textarea"
-            placeholder="写下你的想法..."
-            :rows="22"
-            :maxlength="50000"
-            show-count
-          />
+          <RichTextEditor v-model="form.content" />
         </div>
 
         <div class="editor-actions">
