@@ -160,28 +160,28 @@ onMounted(fetchBlog)
 .container {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 32px;
 }
 
 .editor-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 40px;
-  margin-bottom: 24px;
+  margin-top: 48px;
+  margin-bottom: 28px;
 }
 
 .header-icon {
   font-size: 1.2rem;
-  color: #5b8a6e;
-  opacity: 0.7;
+  color: #C9A882;
+  opacity: 0.8;
 }
 
 .editor-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #3d3a33;
+  color: #3D3028;
 }
 
 .state-container {
@@ -189,25 +189,26 @@ onMounted(fetchBlog)
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 0;
+  padding: 100px 0;
   gap: 16px;
 }
 
 .editor-card {
   border-radius: 16px;
-  box-shadow: 0 2px 20px rgba(61, 58, 51, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid #EDE5DA;
 }
 
 .form-group {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .form-label {
   display: block;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #6b665c;
-  margin-bottom: 10px;
+  color: #C9A882;
+  margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -216,7 +217,7 @@ onMounted(fetchBlog)
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 @keyframes fadeIn {

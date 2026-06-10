@@ -6,8 +6,7 @@ import { NSpace, NButton, NAvatar, NDropdown, NText } from 'naive-ui'
 import {
   CreateOutline,
   LogOutOutline,
-  PersonOutline,
-  LeafOutline
+  PersonOutline
 } from '@vicons/ionicons5'
 
 const router = useRouter()
@@ -69,8 +68,8 @@ function goRegister() {
 <template>
   <div class="navbar-inner">
     <div class="navbar-brand" @click="goHome">
-      <NText class="brand-icon">✿</NText>
-      <NText class="brand-text" tag="span">春日书简</NText>
+      <NText class="brand-icon">✦</NText>
+      <NText class="brand-text" tag="span">暖光笔记</NText>
     </div>
 
     <NSpace align="center" :size="8">
@@ -90,7 +89,7 @@ function goRegister() {
             <NAvatar
               :size="26"
               round
-              :style="{ backgroundColor: '#5b8a6e', color: '#fff', fontSize: '12px', fontWeight: '700' }"
+              :style="{ backgroundColor: '#C9A882', color: '#fff', fontSize: '12px', fontWeight: '700' }"
             >
               {{ userInitial }}
             </NAvatar>
@@ -114,7 +113,7 @@ function goRegister() {
   height: 64px;
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 32px;
 }
 
 .navbar-brand {
@@ -127,14 +126,15 @@ function goRegister() {
 
 .brand-icon {
   font-size: 1.3rem;
-  opacity: 0.7;
+  opacity: 0.8;
+  color: #C9A882;
 }
 
 .brand-text {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.4rem;
   font-weight: 600;
-  color: #3d3a33;
+  color: #3D3028;
   letter-spacing: 0.06em;
 }
 
@@ -145,6 +145,6 @@ function goRegister() {
 .user-name {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #3d3a33;
+  color: #3D3028;
 }
 </style>

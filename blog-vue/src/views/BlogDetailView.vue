@@ -239,7 +239,7 @@ onMounted(fetchBlog)
                   round
                   :size="30"
                   :style="{
-                    backgroundColor: '#5b8a6e',
+                    backgroundColor: '#C9A882',
                     color: '#fff',
                     fontSize: '13px',
                     fontWeight: '700'
@@ -328,7 +328,7 @@ onMounted(fetchBlog)
 .container {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 32px;
 }
 
 .state-container {
@@ -342,9 +342,10 @@ onMounted(fetchBlog)
 
 .blog-card {
   border-radius: 16px;
-  margin-top: 40px;
+  margin-top: 48px;
   animation: fadeInUp 0.5s ease;
-  box-shadow: 0 2px 20px rgba(61, 58, 51, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid #E8ECF0;
 }
 
 .blog-header {
@@ -353,18 +354,18 @@ onMounted(fetchBlog)
 
 .header-ornament {
   font-size: 0.9rem;
-  color: #5b8a6e;
+  color: #C9A882;
   margin-bottom: 20px;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .blog-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  color: #3d3a33;
+  color: #3D3028;
   line-height: 1.3;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   letter-spacing: 0.01em;
 }
 
@@ -377,10 +378,12 @@ onMounted(fetchBlog)
 
 .author-name {
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .meta-date {
   font-size: 0.82rem;
+  color: #A89888;
 }
 
 .meta-actions {
@@ -390,8 +393,8 @@ onMounted(fetchBlog)
 .blog-content {
   font-size: 1.05rem;
   line-height: 2;
-  color: #3d3a33;
-  padding: 8px 0;
+  color: #3D3028;
+  padding: 12px 0;
   white-space: pre-wrap;
 }
 
@@ -409,7 +412,7 @@ onMounted(fetchBlog)
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   font-weight: 600;
-  color: #3d3a33;
+  color: #3D3028;
 }
 
 .blog-content :deep(h1) { font-size: 1.8rem; }
@@ -427,25 +430,28 @@ onMounted(fetchBlog)
 }
 
 .blog-content :deep(blockquote) {
-  border-left: 3px solid #5b8a6e;
-  padding-left: 1em;
-  color: #666;
-  margin: 1em 0;
+  border-left: 3px solid #C9A882;
+  color: #6B5D52;
+  margin: 1.5em 0;
   font-style: italic;
+  background: #FBF5EE;
+  padding: 1em 1.2em;
+  border-radius: 0 8px 8px 0;
 }
 
 .blog-content :deep(pre) {
-  background: #f5f5f5;
-  padding: 1em;
-  border-radius: 8px;
+  background: #FBF5EE;
+  padding: 1.2em;
+  border-radius: 10px;
   overflow-x: auto;
-  margin: 1em 0;
+  margin: 1.5em 0;
+  border: 1px solid #EDE5DA;
 }
 
 .blog-content :deep(code) {
-  background: #f0f0f0;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
+  background: #F3EDE5;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
   font-size: 0.9em;
 }
 
@@ -456,44 +462,47 @@ onMounted(fetchBlog)
 
 .blog-content :deep(img) {
   max-width: 100%;
-  border-radius: 8px;
-  margin: 1em 0;
+  border-radius: 10px;
+  margin: 1.5em 0;
 }
 
 .blog-content :deep(a) {
-  color: #5b8a6e;
+  color: #C9A882;
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .blog-content :deep(hr) {
   border: none;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #EDE5DA;
   margin: 2em 0;
 }
 
 .replies-card {
   border-radius: 16px;
-  margin-top: 20px;
-  box-shadow: 0 2px 20px rgba(61, 58, 51, 0.05);
+  margin-top: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid #EDE5DA;
 }
 
 .section-header {
   display: flex;
   align-items: baseline;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .section-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #3d3a33;
+  color: #3D3028;
 }
 
 .section-count {
   font-size: 0.8rem;
   font-weight: 500;
+  color: #A89888;
 }
 
 .reply-list {
@@ -502,13 +511,14 @@ onMounted(fetchBlog)
 
 .no-replies {
   text-align: center;
-  padding: 40px 0;
+  padding: 48px 0;
 }
 
 .no-replies-text {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-style: italic;
   font-size: 0.95rem;
+  color: #A89888;
 }
 
 @keyframes fadeInUp {

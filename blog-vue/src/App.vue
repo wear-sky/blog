@@ -1,57 +1,55 @@
 <script setup>
-import { computed } from 'vue'
 import {
   NConfigProvider,
   NMessageProvider,
   NDialogProvider,
   NLayout,
   NLayoutHeader,
-  NLayoutContent,
-  darkTheme
+  NLayoutContent
 } from 'naive-ui'
 import Navbar from './components/Navbar.vue'
 
 const themeOverrides = {
   common: {
-    primaryColor: '#5b8a6e',
-    primaryColorHover: '#6d9e80',
-    primaryColorPressed: '#4a7a5e',
-    primaryColorSuppl: '#7c9a82',
-    borderRadius: '6px',
-    borderRadiusSmall: '4px',
+    primaryColor: '#C9A882',
+    primaryColorHover: '#D4B892',
+    primaryColorPressed: '#BE9872',
+    primaryColorSuppl: '#FBF5EE',
+    borderRadius: '8px',
+    borderRadiusSmall: '6px',
     fontFamily: "'Nunito', 'Segoe UI', system-ui, sans-serif",
     fontFamilyMono: "'JetBrains Mono', 'Fira Code', monospace",
-    bodyColor: '#f8f6f1',
+    bodyColor: '#FBF9F6',
     cardColor: '#ffffff',
     modalColor: '#ffffff',
     popoverColor: '#ffffff',
     inputColor: '#ffffff',
     tableColor: '#ffffff',
-    borderColor: '#e4e0d7',
-    dividerColor: '#e4e0d7',
-    hoverColor: 'rgba(91, 138, 110, 0.08)',
-    textColorBase: '#3d3a33',
-    textColor1: '#3d3a33',
-    textColor2: '#5a5649',
-    textColor3: '#8a8478',
-    placeholderColor: '#b0a99d',
+    borderColor: '#EDE5DA',
+    dividerColor: '#F3EDE5',
+    hoverColor: 'rgba(201, 168, 130, 0.06)',
+    textColorBase: '#3D3028',
+    textColor1: '#3D3028',
+    textColor2: '#6B5D52',
+    textColor3: '#A89888',
+    placeholderColor: '#C5B8A8',
   },
   Card: {
-    borderRadius: '12px',
-    borderColor: '#e4e0d7',
+    borderRadius: '16px',
+    borderColor: '#EDE5DA',
     color: '#ffffff',
     titleFontWeight: '600',
   },
   Button: {
-    borderRadiusMedium: '8px',
-    borderRadiusSmall: '6px',
+    borderRadiusMedium: '10px',
+    borderRadiusSmall: '8px',
     fontWeightStrong: '600',
   },
   Input: {
-    borderRadius: '8px',
-    borderHover: '#5b8a6e',
-    borderFocus: '#5b8a6e',
-    boxShadowFocus: '0 0 0 2px rgba(91, 138, 110, 0.15)',
+    borderRadius: '10px',
+    borderHover: '#C9A882',
+    borderFocus: '#C9A882',
+    boxShadowFocus: '0 0 0 3px rgba(201, 168, 130, 0.12)',
   },
   Tag: {
     borderRadius: '12px',
@@ -60,7 +58,7 @@ const themeOverrides = {
     itemBorderRadius: '50%',
   },
   Message: {
-    borderRadius: '8px',
+    borderRadius: '10px',
   }
 }
 </script>
@@ -89,17 +87,18 @@ const themeOverrides = {
 <style scoped>
 .app-layout {
   min-height: 100vh;
-  background: var(--body-color, #f8f6f1);
+  background: #FBF9F6;
 }
 
 .app-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   height: 64px;
+  border-bottom: 1px solid rgba(232, 236, 240, 0.8);
 }
 
 .app-content {

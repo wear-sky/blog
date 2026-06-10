@@ -2,7 +2,6 @@
 import { ref, onMounted, computed } from 'vue'
 import { getBlogList } from '@/api/blog'
 import {
-  NSpace,
   NText,
   NSpin,
   NResult,
@@ -50,9 +49,7 @@ onMounted(fetchBlogs)
 <template>
   <div class="home-page">
     <header class="page-header">
-      <div class="header-deco">✦</div>
-      <h1 class="page-title">最新博文</h1>
-      <NText depth="3" class="page-subtitle">在文字间，遇见春天</NText>
+      <NText depth="3" class="page-subtitle">用文字，记录生活的温度</NText>
     </header>
 
     <main class="container">
@@ -114,44 +111,29 @@ onMounted(fetchBlogs)
 
 .page-header {
   text-align: center;
-  padding: 72px 28px 48px;
+  padding: 48px 32px 32px;
   animation: fadeIn 0.6s ease;
-}
-
-.header-deco {
-  font-size: 1.1rem;
-  color: #5b8a6e;
-  margin-bottom: 16px;
-  opacity: 0.5;
-}
-
-.page-title {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: #3d3a33;
-  margin-bottom: 12px;
-  letter-spacing: 0.04em;
 }
 
 .page-subtitle {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-style: italic;
   letter-spacing: 0.06em;
+  color: #999;
 }
 
 .container {
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 32px;
 }
 
 .blog-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding-bottom: 60px;
+  gap: 20px;
+  padding-bottom: 80px;
 }
 
 .state-container {
@@ -159,23 +141,24 @@ onMounted(fetchBlogs)
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 0;
+  padding: 100px 0;
   gap: 16px;
 }
 
 .state-text {
   font-size: 0.9rem;
+  color: #999;
 }
 
 .empty-hint {
-  font-size: 1.6rem;
-  opacity: 0.4;
+  font-size: 1.8rem;
+  opacity: 0.3;
 }
 
 .pagination-wrapper {
   display: flex;
   justify-content: center;
-  padding: 48px 0;
+  padding: 60px 0;
 }
 
 @keyframes fadeIn {

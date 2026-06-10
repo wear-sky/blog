@@ -35,7 +35,7 @@ function getUserInitial(userId) {
 }
 
 function getAvatarColor(userId) {
-  const colors = ['#5b8a6e', '#c4a87a', '#7a8fb0', '#b07a8f', '#8fb07a', '#a67c52']
+  const colors = ['#C9A882', '#D4B892', '#DFC8A2', '#EAD8B2', '#F5E8C2', '#FFF8D2']
   return colors[(userId || 0) % colors.length]
 }
 
@@ -189,8 +189,8 @@ function formatDate(dateStr) {
 }
 
 .reply-item {
-  padding: 16px 0;
-  border-bottom: 1px solid #eeeae2;
+  padding: 20px 0;
+  border-bottom: 1px solid #F0F2F5;
   animation: fadeIn 0.3s ease both;
 }
 
@@ -200,7 +200,7 @@ function formatDate(dateStr) {
 
 .reply-main {
   display: flex;
-  gap: 12px;
+  gap: 14px;
 }
 
 .reply-body {
@@ -211,45 +211,48 @@ function formatDate(dateStr) {
 .reply-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
+  gap: 10px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
 }
 
 .reply-user {
-  font-size: 0.85rem;
-  color: #5b8a6e;
+  font-size: 0.88rem;
+  color: #C9A882;
+  font-weight: 600;
 }
 
 .reply-to {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  color: #A89888;
 }
 
 .reply-time {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   margin-left: auto;
+  color: #A89888;
 }
 
 .reply-content {
   display: block;
   font-size: 0.92rem;
   line-height: 1.8;
-  margin-bottom: 8px;
-  color: #3d3a33;
+  margin-bottom: 10px;
+  color: #3D3028;
 }
 
 .reply-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 12px;
+  margin-top: 6px;
   flex-wrap: wrap;
 }
 
 .reply-children {
-  margin-left: 24px;
-  padding-left: 20px;
-  border-left: 2px solid #eeeae2;
+  margin-left: 28px;
+  padding-left: 24px;
+  border-left: 2px solid #F0F2F5;
 }
 
 @keyframes fadeIn {

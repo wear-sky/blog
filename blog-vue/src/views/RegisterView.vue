@@ -146,6 +146,7 @@ function goLogin() {
           block
           size="large"
           round
+          class="submit-btn"
           :loading="loading"
           @click="handleRegister"
         >
@@ -155,7 +156,7 @@ function goLogin() {
 
       <div class="auth-footer">
         <NText depth="3" class="footer-text">已有账号？</NText>
-        <NButton text type="primary" @click="goLogin">去登录</NButton>
+        <NButton text type="primary" class="link-btn" @click="goLogin">去登录</NButton>
       </div>
     </NCard>
   </div>
@@ -167,34 +168,36 @@ function goLogin() {
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - 64px);
-  padding: 40px 28px;
+  padding: 48px 32px;
   animation: fadeIn 0.5s ease;
 }
 
 .auth-card {
   width: 100%;
   max-width: 480px;
-  border-radius: 16px;
-  box-shadow: 0 2px 20px rgba(61, 58, 51, 0.06);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(201, 168, 130, 0.08);
+  border: 1px solid #EDE5DA;
+  padding: 8px;
 }
 
 .auth-header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 36px;
 }
 
 .header-icon {
   font-size: 1.6rem;
-  color: #5b8a6e;
+  color: #C9A882;
   margin-bottom: 16px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .auth-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #3d3a33;
+  color: #3D3028;
   margin-bottom: 8px;
 }
 
@@ -202,10 +205,33 @@ function goLogin() {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 0.92rem;
   font-style: italic;
+  color: #A89888;
 }
 
 .auth-form {
   margin-bottom: 8px;
+}
+
+.submit-btn {
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, #C9A882 0%, #D4B892 100%);
+  border: none;
+  box-shadow: 0 4px 14px rgba(201, 168, 130, 0.25);
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #D4B892 0%, #DFC8A2 100%);
+  box-shadow: 0 6px 18px rgba(201, 168, 130, 0.35);
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(201, 168, 130, 0.2);
 }
 
 .auth-footer {
@@ -213,13 +239,23 @@ function goLogin() {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid #eeeae2;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid #F3EDE5;
 }
 
 .footer-text {
   font-size: 0.85rem;
+  color: #A89888;
+}
+
+.link-btn {
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.link-btn:hover {
+  color: #D4B892;
 }
 
 @keyframes fadeIn {

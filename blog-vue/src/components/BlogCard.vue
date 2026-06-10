@@ -59,7 +59,7 @@ function goDetail() {
           round
           :size="24"
           :style="{
-            backgroundColor: '#5b8a6e',
+            backgroundColor: '#C9A882',
             color: '#fff',
             fontSize: '12px',
             fontWeight: '700'
@@ -84,25 +84,27 @@ function goDetail() {
 <style scoped>
 .blog-card {
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   animation: fadeInUp 0.5s ease both;
-  border-radius: 12px;
-  border-left: 3px solid transparent;
+  border-radius: 16px;
+  border: 1px solid #E8ECF0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .blog-card:hover {
-  border-left-color: #5b8a6e;
+  border-color: #EDE5DA;
+  box-shadow: 0 4px 12px rgba(143, 168, 154, 0.12);
   transform: translateY(-2px);
 }
 
 .blog-card:hover .card-title {
-  color: #5b8a6e;
+  color: #C9A882;
 }
 
 .blog-card:hover .meta-arrow {
   opacity: 1;
   transform: translateX(0);
-  color: #5b8a6e;
+  color: #C9A882;
 }
 
 .card-inner {
@@ -112,30 +114,31 @@ function goDetail() {
 .card-author {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .author-name {
   font-size: 0.85rem;
-  color: #6b665c;
+  color: #6B5D52;
+  font-weight: 500;
 }
 
 .card-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #3d3a33;
+  color: #3D3028;
   margin-bottom: 12px;
   line-height: 1.4;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease;
 }
 
 .card-excerpt {
-  font-size: 0.9rem;
-  color: #6b665c;
+  font-size: 0.92rem;
+  color: #6B5D52;
   line-height: 1.8;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .card-meta {
@@ -145,17 +148,16 @@ function goDetail() {
 }
 
 .meta-date {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 600;
+  font-size: 0.8rem;
+  color: #A89888;
+  font-weight: 500;
 }
 
 .meta-arrow {
   opacity: 0;
   transform: translateX(-8px);
   transition: all 0.3s ease;
-  color: #8a8478;
+  color: #A89888;
 }
 
 @keyframes fadeInUp {

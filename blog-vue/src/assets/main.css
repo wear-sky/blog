@@ -15,36 +15,34 @@ html {
 
 body {
   font-family: 'Nunito', 'Segoe UI', system-ui, sans-serif;
-  background-color: #f8f6f1;
-  color: #3d3a33;
+  background-color: #FBF9F6;
+  color: #3D3028;
   line-height: 1.7;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:
-    radial-gradient(ellipse at 15% 0%, rgba(91, 138, 110, 0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 100%, rgba(196, 168, 122, 0.04) 0%, transparent 50%);
 }
 
 a {
-  color: #5b8a6e;
+  color: #C9A882;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #6d9e80;
+  color: #D4B892;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   font-weight: 600;
   line-height: 1.3;
-  color: #3d3a33;
+  color: #3D3028;
 }
 
 ::selection {
-  background: rgba(91, 138, 110, 0.15);
-  color: #3d3a33;
+  background: rgba(201, 168, 130, 0.2);
+  color: #3D3028;
 }
 
 ::-webkit-scrollbar {
@@ -52,16 +50,16 @@ h1, h2, h3, h4 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f8f6f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ddd8ce;
+  background: #D8DCE0;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #b0a99d;
+  background: #C0C4C8;
 }
 
 .page-enter-active {
