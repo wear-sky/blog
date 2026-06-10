@@ -27,12 +27,14 @@ function updateContent(content) {
 </template>
 
 <style scoped>
+/*noinspection CssUnusedSymbol*/
 .rich-text-editor :deep(.ql-toolbar) {
   border-radius: 12px 12px 0 0;
   border-color: #e0e0e6;
   background: #fafafa;
 }
 
+/*noinspection CssUnusedSymbol*/
 .rich-text-editor :deep(.ql-container) {
   border-radius: 0 0 12px 12px;
   border-color: #e0e0e6;
@@ -41,11 +43,13 @@ function updateContent(content) {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/*noinspection CssUnusedSymbol*/
 .rich-text-editor :deep(.ql-editor) {
   min-height: 400px;
   line-height: 1.8;
 }
 
+/*noinspection CssUnusedSymbol*/
 .rich-text-editor :deep(.ql-editor.ql-blank::before) {
   color: #c2c2c2;
   font-style: normal;

@@ -395,10 +395,6 @@ onMounted(fetchBlog)
   white-space: pre-wrap;
 }
 
-.content-paragraph {
-  margin-bottom: 1.4em;
-}
-
 .blog-content :deep(p) {
   margin-bottom: 1.4em;
 }
