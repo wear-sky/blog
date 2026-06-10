@@ -40,3 +40,8 @@ build/
 
 ### Logs ###
 /log/
+/blog-vue/test-blogs.cjs
+/blog-vue/test-blogs.py
+/blog-vue/test-blogs.sh
+/blog-vue/test-bulk.cjs
+/blog-vue/test-replies.cjs
