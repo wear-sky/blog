@@ -11,9 +11,4 @@ public interface OperationLogService {
      * 保存操作日志
      */
     void saveLog(OperationLogDTO dto);
-
-    /**
-     * 刷新缓冲区
-     */
-    void flushBuffer();
 }

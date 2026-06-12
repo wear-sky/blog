@@ -4,6 +4,7 @@ import com.wearsky.demo.common.dto.OperationLogDTO;
 import com.wearsky.demo.log.document.OperationLogDocument;
 import com.wearsky.demo.log.repository.OperationLogRepository;
 import com.wearsky.demo.log.service.OperationLogService;
+import jakarta.annotation.PreDestroy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -45,9 +46,18 @@ public class OperationLogServiceImpl implements OperationLogService {
         }
     }
 
-    @Override
     @Scheduled(fixedDelay = 5000)
-    public void flushBuffer() {
+    void flushBuffer() {
+        doFlushWithLock();
+    }
+
+    @PreDestroy
+    void onShutdown() {
+        log.info("服务关闭，刷新剩余 {} 条操作日志", buffer.size());
+        doFlushWithLock();
+    }
+
+    private void doFlushWithLock() {
         synchronized (buffer) {
             if (!buffer.isEmpty()) {
                 doFlush();
