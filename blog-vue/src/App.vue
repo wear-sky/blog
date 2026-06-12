@@ -91,8 +91,10 @@ const themeOverrides = {
 }
 
 .app-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(20px);
@@ -103,5 +105,6 @@ const themeOverrides = {
 
 .app-content {
   background: transparent;
+  padding-top: 64px;
 }
 </style>

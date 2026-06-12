@@ -6,6 +6,7 @@ import com.wearsky.demo.blog.domain.query.BlogQuery;
 import com.wearsky.demo.blog.domain.vo.BlogPageVO;
 import com.wearsky.demo.blog.domain.vo.BlogVO;
 import com.wearsky.demo.blog.service.IBlogService;
+import com.wearsky.demo.common.annotation.OperationLog;
 import com.wearsky.demo.common.domain.vo.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,6 +24,7 @@ public class BlogController {
 
     private final IBlogService blogService;
 
+    @OperationLog(module = "博客", operation = "发布博客")
     @Operation(summary = "发布博客")
     @PostMapping
     public ApiResponse<Long> createBlog(@RequestBody @Valid CreateBlogDTO dto) {
@@ -30,6 +32,7 @@ public class BlogController {
         return ApiResponse.success(blogService.createBlog(dto, authorId));
     }
 
+    @OperationLog(module = "博客", operation = "编辑博客")
     @Operation(summary = "更新博客")
     @PutMapping
     public ApiResponse<Void> updateBlog(@RequestBody @Valid UpdateBlogDTO dto) {
@@ -38,6 +41,7 @@ public class BlogController {
                 ApiResponse.success() : ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "更新失败");
     }
 
+    @OperationLog(module = "博客", operation = "删除博客")
     @Operation(summary = "删除博客")
     @DeleteMapping("/{id}")
     public ApiResponse<Void> deleteBlog(@PathVariable Long id) {
@@ -58,6 +62,7 @@ public class BlogController {
         return ApiResponse.success(blogService.queryBlogs(query));
     }
 
+    @OperationLog(module = "互动", operation = "点赞博客")
     @Operation(summary = "给博客点赞")
     @PostMapping("/{id}/like")
     public ApiResponse<Void> like(@PathVariable Long id) {
@@ -66,6 +71,7 @@ public class BlogController {
         return ApiResponse.success();
     }
 
+    @OperationLog(module = "互动", operation = "取消点赞博客")
     @Operation(summary = "取消博客点赞")
     @PostMapping("/{id}/undoLike")
     public ApiResponse<Void> undoLike(@PathVariable Long id) {
@@ -74,6 +80,7 @@ public class BlogController {
         return ApiResponse.success();
     }
 
+    @OperationLog(module = "互动", operation = "踩博客")
     @Operation(summary = "给博客点踩")
     @PostMapping("/{id}/dislike")
     public ApiResponse<Void> dislike(@PathVariable Long id) {
@@ -82,6 +89,7 @@ public class BlogController {
         return ApiResponse.success();
     }
 
+    @OperationLog(module = "互动", operation = "取消踩博客")
     @Operation(summary = "取消博客点踩")
     @PostMapping("/{id}/undoDislike")
     public ApiResponse<Void> undoDislike(@PathVariable Long id) {

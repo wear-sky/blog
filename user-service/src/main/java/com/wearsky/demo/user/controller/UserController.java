@@ -3,6 +3,7 @@ package com.wearsky.demo.user.controller;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.alibaba.cloud.commons.lang.StringUtils;
+import com.wearsky.demo.common.annotation.OperationLog;
 import com.wearsky.demo.common.domain.vo.ApiResponse;
 import com.wearsky.demo.common.domain.vo.UserVO;
 import com.wearsky.demo.user.domain.dto.LoginDTO;
@@ -36,6 +37,7 @@ public class UserController {
 
     PasswordEncoder passwordEncoder;
 
+    @OperationLog(module = "用户", operation = "用户注册")
     @Operation(summary = "注册")
     @PostMapping
     public ApiResponse<Object> register(@RequestBody @Valid RegisterDTO registerDTO) {
@@ -43,6 +45,7 @@ public class UserController {
                 ApiResponse.success() : ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "注册失败");
     }
 
+    @OperationLog(module = "用户", operation = "用户登录")
     @Operation(summary = "登录")
     @PostMapping("/login")
     public ApiResponse<String> login(@RequestBody @Valid LoginDTO loginDTO) {
@@ -56,6 +59,7 @@ public class UserController {
         return ApiResponse.success(userServiceImpl.queryUser(userQuery));
     }
 
+    @OperationLog(module = "用户", operation = "修改信息")
     @Operation(summary = "更新用户", description = "更新本人用户信息")
     @PutMapping
     public ApiResponse<Void> updateUser(@RequestBody @Valid UpdateUserDTO updateUserDTO) {
@@ -69,6 +73,7 @@ public class UserController {
                 ApiResponse.success() : ApiResponse.error(HttpStatus.BAD_REQUEST.value(), "更新失败");
     }
 
+    @OperationLog(module = "用户", operation = "注销账号")
     @PreAuthorize("hasRole('ADMIN')")
     @Operation(summary = "删除用户", description = "根据ID删除用户")
     @DeleteMapping("/{id}")

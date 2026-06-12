@@ -19,6 +19,7 @@
         <module>blog-service</module>
         <module>click-service</module>
         <module>blog-common</module>
+        <module>log-service</module>
     </modules>
 
     <name>blog</name>

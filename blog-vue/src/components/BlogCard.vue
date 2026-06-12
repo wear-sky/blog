@@ -42,7 +42,9 @@ const authorInitial = computed(() => {
 })
 
 function goDetail() {
-  router.push(`/blog/${props.blog.id}`)
+  const page = new URLSearchParams(window.location.search).get('page')
+  const query = page ? { page } : {}
+  router.push({ path: `/blog/${props.blog.id}`, query })
 }
 </script>
 

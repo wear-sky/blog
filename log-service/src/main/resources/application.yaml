@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        namespace: dev
+        group: BLOG
+      config:
+        namespace: dev
+        group: BLOG
+  config:
+    import:
+      - nacos:log.yaml?refreshEnabled=true
+      - nacos:rabbitmq.yaml?refreshEnabled=true
+      - nacos:elasticsearch.yaml?refreshEnabled=true
+      - nacos:log-service.yaml?refreshEnabled=true

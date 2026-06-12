@@ -3,6 +3,7 @@ package com.wearsky.demo.blog.controller;
 import com.wearsky.demo.blog.domain.dto.CreateReplyDTO;
 import com.wearsky.demo.blog.domain.vo.ReplyTreeVO;
 import com.wearsky.demo.blog.service.IReplyService;
+import com.wearsky.demo.common.annotation.OperationLog;
 import com.wearsky.demo.common.domain.vo.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,6 +23,7 @@ public class ReplyController {
 
     private final IReplyService replyService;
 
+    @OperationLog(module = "评论", operation = "发布回复")
     @Operation(summary = "发布回复")
     @PostMapping
     public ApiResponse<Long> createReply(@RequestBody @Valid CreateReplyDTO dto) {
@@ -29,6 +31,7 @@ public class ReplyController {
         return ApiResponse.success(replyService.createReply(dto, userId));
     }
 
+    @OperationLog(module = "评论", operation = "删除回复")
     @Operation(summary = "删除回复")
     @DeleteMapping("/{id}")
     public ApiResponse<Void> deleteReply(@PathVariable Long id) {
@@ -43,6 +46,7 @@ public class ReplyController {
         return ApiResponse.success(replyService.getReplyTree(blogId));
     }
 
+    @OperationLog(module = "互动", operation = "点赞回复")
     @Operation(summary = "给评论点赞")
     @PostMapping("/{id}/like")
     public ApiResponse<Void> like(@PathVariable Long id) {
@@ -51,6 +55,7 @@ public class ReplyController {
         return ApiResponse.success();
     }
 
+    @OperationLog(module = "互动", operation = "取消点赞回复")
     @Operation(summary = "取消评论点赞")
     @PostMapping("/{id}/undoLike")
     public ApiResponse<Void> undoLike(@PathVariable Long id) {
@@ -59,6 +64,7 @@ public class ReplyController {
         return ApiResponse.success();
     }
 
+    @OperationLog(module = "互动", operation = "踩回复")
     @Operation(summary = "给评论点踩")
     @PostMapping("/{id}/dislike")
     public ApiResponse<Void> dislike(@PathVariable Long id) {
@@ -67,6 +73,7 @@ public class ReplyController {
         return ApiResponse.success();
     }
 
+    @OperationLog(module = "互动", operation = "取消踩回复")
     @Operation(summary = "取消评论点踩")
     @PostMapping("/{id}/undoDislike")
     public ApiResponse<Void> undoDislike(@PathVariable Long id) {

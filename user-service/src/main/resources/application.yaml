@@ -13,6 +13,7 @@ spring:
       - nacos:log.yaml
       - nacos:knife4j.yaml
       - nacos:seata.yaml
+      - nacos:rabbitmq.yaml?refreshEnabled=true
       - nacos:mybatis-plus.yaml
       - nacos:user-service.yaml?refreshEnabled=true
 #  application:

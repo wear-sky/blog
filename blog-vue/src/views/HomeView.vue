@@ -1,5 +1,6 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { getBlogList } from '@/api/blog'
 import {
   NText,
@@ -11,6 +12,8 @@ import {
 } from 'naive-ui'
 import BlogCard from '@/components/BlogCard.vue'
 
+const route = useRoute()
+
 const blogs = ref([])
 const total = ref(0)
 const pageNum = ref(1)
@@ -19,6 +22,10 @@ const loading = ref(true)
 const error = ref('')
 
 const totalPages = computed(() => Math.ceil(total.value / pageSize.value))
+
+// 从 URL query 恢复页码
+const initPage = Number(route.query.page)
+if (initPage > 1) pageNum.value = initPage
 
 async function fetchBlogs() {
   loading.value = true
@@ -37,8 +44,13 @@ async function fetchBlogs() {
   }
 }
 
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 function handlePageChange(page) {
   pageNum.value = page
+  router.replace({ query: { ...route.query, page: page > 1 ? page : undefined } })
   fetchBlogs()
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
