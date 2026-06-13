@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +23,8 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class OperationLogServiceImpl implements OperationLogService {
+
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private final OperationLogRepository repository;
 
@@ -98,7 +101,7 @@ public class OperationLogServiceImpl implements OperationLogService {
         doc.setStatus(dto.getStatus());
         doc.setErrorMsg(dto.getErrorMsg());
         doc.setDuration(dto.getDuration());
-        doc.setCreatedAt(dto.getCreatedAt());
+        doc.setCreatedAt(dto.getCreatedAt() != null ? dto.getCreatedAt().format(FORMATTER) : null);
         return doc;
     }
 }

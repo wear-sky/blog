@@ -1,24 +1,19 @@
 package com.wearsky.demo.log.controller;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.SortOrder;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
+import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.json.JsonData;
 import com.wearsky.demo.common.domain.vo.ApiResponse;
 import com.wearsky.demo.log.document.OperationLogDocument;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
-import org.springframework.data.elasticsearch.core.SearchHit;
-import org.springframework.data.elasticsearch.core.SearchHits;
-import org.springframework.data.elasticsearch.core.query.Criteria;
-import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -30,7 +25,6 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OperationLogController {
 
-    private final ElasticsearchOperations elasticsearchOperations;
     private final ElasticsearchClient elasticsearchClient;
 
     /**
@@ -45,33 +39,45 @@ public class OperationLogController {
             @RequestParam(required = false) String operation,
             @RequestParam(required = false) String startTime,
             @RequestParam(required = false) String endTime
-    ) {
-        Criteria criteria = new Criteria();
-        if (userId != null) {
-            criteria.and("userId").is(userId);
-        }
-        if (module != null && !module.isEmpty()) {
-            criteria.and("module").is(module);
-        }
-        if (operation != null && !operation.isEmpty()) {
-            criteria.and("operation").is(operation);
-        }
-        if (startTime != null && !startTime.isEmpty()) {
-            criteria.and("createdAt").greaterThanEqual(LocalDateTime.parse(startTime, DateTimeFormatter.ISO_DATE_TIME));
-        }
-        if (endTime != null && !endTime.isEmpty()) {
-            criteria.and("createdAt").lessThanEqual(LocalDateTime.parse(endTime, DateTimeFormatter.ISO_DATE_TIME));
-        }
+    ) throws Exception {
+        SearchResponse<OperationLogDocument> response = elasticsearchClient.search(s -> {
+                    s.index("operation-log")
+                            .from((pageNum - 1) * pageSize)
+                            .size(pageSize)
+                            .sort(so -> so.field(f -> f.field("createdAt").order(SortOrder.Desc)));
 
-        CriteriaQuery query = new CriteriaQuery(criteria)
-                .setPageable(PageRequest.of(pageNum - 1, pageSize, Sort.by(Sort.Direction.DESC, "createdAt")));
-
-        SearchHits<OperationLogDocument> hits = elasticsearchOperations.search(query, OperationLogDocument.class);
+                    // 构建 bool query
+                    s.query(q -> q.bool(b -> {
+                        // term 精确匹配条件
+                        if (userId != null) {
+                            b.filter(f -> f.term(t -> t.field("userId").value(userId)));
+                        }
+                        if (module != null && !module.isEmpty()) {
+                            b.filter(f -> f.term(t -> t.field("module").value(module)));
+                        }
+                        if (operation != null && !operation.isEmpty()) {
+                            b.filter(f -> f.term(t -> t.field("operation").value(operation)));
+                        }
+                        // 时间范围条件
+                        if (startTime != null || endTime != null) {
+                            b.filter(f -> f.range(r -> r.date(d -> {
+                                d.field("createdAt");
+                                if (startTime != null && !startTime.isEmpty()) d.gte(startTime);
+                                if (endTime != null && !endTime.isEmpty()) d.lte(endTime);
+                                return d;
+                            })));
+                        }
+                        return b;
+                    }));
+                    return s;
+                },
+                OperationLogDocument.class
+        );
 
         Map<String, Object> result = new HashMap<>();
-        result.put("total", hits.getTotalHits());
-        result.put("list", hits.getSearchHits().stream()
-                .map(SearchHit::getContent)
+        result.put("total", response.hits().total() != null ? response.hits().total().value() : 0);
+        result.put("list", response.hits().hits().stream()
+                .map(Hit::source)
                 .toList());
 
         return ApiResponse.success(result);
