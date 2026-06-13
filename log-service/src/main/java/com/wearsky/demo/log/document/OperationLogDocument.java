@@ -93,6 +93,6 @@ public class OperationLogDocument {
     /**
      * 操作时间 (yyyy-MM-dd HH:mm:ss)
      */
-    @Field(type = FieldType.Date, format = {}, pattern = "yyyy-MM-dd HH:mm:ss")
+    @Field(type = FieldType.Date, pattern = "yyyy-MM-dd HH:mm:ss")
     private String createdAt;
 }
