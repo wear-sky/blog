@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wearsky.demo.common.exception.BaseException;
 import com.wearsky.demo.blog.domain.dto.CreateBlogDTO;
 import com.wearsky.demo.blog.domain.dto.UpdateBlogDTO;
 import com.wearsky.demo.blog.domain.entity.Blog;
@@ -18,7 +17,10 @@ import com.wearsky.demo.blog.service.IBlogService;
 import com.wearsky.demo.common.client.UserClient;
 import com.wearsky.demo.common.domain.vo.ApiResponse;
 import com.wearsky.demo.common.domain.vo.UserVO;
+import com.wearsky.demo.common.exception.BaseException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,6 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IBlogService {
@@ -132,7 +135,24 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
         Map<String, Long> map = new HashMap<>();
         map.put("userId", userId);
         map.put("blogId", blogId);
-        rabbitTemplate.convertAndSend("click", "like.blog", map);
+        // 1.创建CorrelationData
+        CorrelationData cd = new CorrelationData();
+        // 2.给Future设置whenComplete
+        cd.getFuture().toCompletableFuture().whenComplete((result, throwable) -> {
+            if (throwable != null) {
+                // 2.1.Future发生异常时的处理逻辑，基本不会触发
+                log.error("send message fail", throwable);
+            }
+            if (result != null) {
+                // 2.2.Future接收到回执的处理逻辑，参数中的result就是回执内容
+                if (result.isAck()) { // result.isAck()，boolean类型，true代表ack回执，false 代表 nack回执
+                    log.debug("发送消息成功，收到 ack!");
+                } else { // result.getReason()，String类型，返回nack时的异常描述
+                    log.error("发送消息失败，收到 nack, reason : {}", result.getReason());
+                }
+            }
+        });
+        rabbitTemplate.convertAndSend("click", "like.blog", map, cd);
     }
 
     @Override

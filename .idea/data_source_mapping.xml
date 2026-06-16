@@ -2,6 +2,8 @@
 <project version="4">
   <component name="DataSourcePerFileMappings">
     <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/66417f9b-a647-4263-aa5f-6547e16e34c4/console.sql" value="66417f9b-a647-4263-aa5f-6547e16e34c4" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/66417f9b-a647-4263-aa5f-6547e16e34c4/console_1.sql" value="66417f9b-a647-4263-aa5f-6547e16e34c4" />
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/66417f9b-a647-4263-aa5f-6547e16e34c4/console_2.sql" value="66417f9b-a647-4263-aa5f-6547e16e34c4" />
     <file url="file://$PROJECT_DIR$/blog-service/src/main/resources/db/schema.sql" value="66417f9b-a647-4263-aa5f-6547e16e34c4" />
     <file url="file://$PROJECT_DIR$/click-service/src/main/java/com/wearsky/demo/click/mapper/ClickReplyMapper.java" value="66417f9b-a647-4263-aa5f-6547e16e34c4" />
     <file url="file://$PROJECT_DIR$/click-service/src/main/resources/db/schema.sql" value="66417f9b-a647-4263-aa5f-6547e16e34c4" />

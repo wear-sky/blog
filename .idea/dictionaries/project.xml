@@ -2,9 +2,11 @@
   <dictionary name="project">
     <words>
       <w>mybatisplus</w>
+      <w>nacos</w>
       <w>seata</w>
       <w>vgroup</w>
       <w>wearsky</w>
+      <w>xpack</w>
     </words>
   </dictionary>
 </component>

@@ -131,4 +131,13 @@ public class ClickListener {
         clickReply.setReplyId(map.get("replyId"));
         clickReplyServiceImpl.undoDislike(clickReply);
     }
+
+    @RabbitListener(bindings = @QueueBinding(
+            value = @Queue(name = "error.queue", durable = "true"),
+            exchange = @Exchange(name = "error"),
+            key = "error"
+    ))
+    public void listenClickLikeBlog(Object map) {
+        log.debug("错误消息：{}", map);
+    }
 }

@@ -16,7 +16,7 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import java.util.List;
 
 @AutoConfiguration
-@Import({GlobalExceptionHandler.class, UserAuthoritiesInfoFilter.class, OperationLogAspect.class})
+@Import({GlobalExceptionHandler.class, UserAuthoritiesInfoFilter.class, OperationLogAspect.class, MqConfig.class})
 public class CommonAutoConfiguration {
 
     // 使用json传递消息

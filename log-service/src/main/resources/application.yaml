@@ -12,5 +12,4 @@ spring:
     import:
       - nacos:log.yaml?refreshEnabled=true
       - nacos:rabbitmq.yaml?refreshEnabled=true
-      - nacos:elasticsearch.yaml?refreshEnabled=true
       - nacos:log-service.yaml?refreshEnabled=true
