@@ -19,4 +19,11 @@
         where ur.user_id = #{userId}
     </select>
 
+    <select id="selectUserIdsByPermissionId" resultType="java.lang.Long">
+        select distinct ur.user_id
+        from user_role ur
+            inner join role_permission rp on ur.role_id = rp.role_id
+        where rp.permission_id = #{permissionId}
+    </select>
+
 </mapper>

@@ -1,82 +1,112 @@
 package com.wearsky.demo.user.service;
 
 import com.wearsky.demo.user.domain.entity.Permission;
-import com.wearsky.demo.user.domain.query.PermissionQuery;
-import com.wearsky.demo.user.domain.vo.PermissionPageVO;
+import com.wearsky.demo.user.mapper.PermissionMapper;
+import com.wearsky.demo.user.service.impl.PermissionServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.test.util.ReflectionTestUtils;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 
-@SpringBootTest
-@ActiveProfiles("test")
+@ExtendWith(MockitoExtension.class)
 class PermissionServiceImplTest {
 
-    @Autowired
-    private IPermissionService permissionService;
+    @InjectMocks
+    private PermissionServiceImpl permissionService;
+
+    @Mock
+    private PermissionMapper permissionMapper;
+
+    @Mock
+    private StringRedisTemplate stringRedisTemplate;
 
     private Permission testPermission;
 
     @BeforeEach
     void setUp() {
+        ReflectionTestUtils.setField(permissionService, "baseMapper", permissionMapper);
+
         testPermission = new Permission();
-        testPermission.setName("测试权限");
-        testPermission.setCode("test:permission");
-        testPermission.setDescription("测试权限描述");
+        testPermission.setId(1L);
+        testPermission.setName("用户读取");
+        testPermission.setCode("user:read");
+        testPermission.setDescription("读取用户信息");
     }
 
     @Test
-    void queryPermission_Success() {
-        // Given
-        permissionService.save(testPermission);
+    void updateById_ShouldClearCache() {
+        when(permissionMapper.selectUserIdsByPermissionId(1L)).thenReturn(List.of(10L, 20L));
+        when(permissionMapper.updateById(any(Permission.class))).thenReturn(1);
 
-        PermissionQuery permissionQuery = new PermissionQuery();
-        permissionQuery.setPageNum(1);
-        permissionQuery.setPageSize(10);
-        permissionQuery.setName("测试");
+        boolean result = permissionService.updateById(testPermission);
 
-        // When
-        PermissionPageVO result = permissionService.queryPermission(permissionQuery);
-
-        // Then
-        assertNotNull(result);
-        assertTrue(result.getTotal() > 0);
-        assertFalse(result.getPermissions().isEmpty());
-
-        // Cleanup
-        permissionService.removeById(testPermission.getId());
+        assertTrue(result);
+        verify(stringRedisTemplate).delete(List.of("auth:authorities:10", "auth:authorities:20"));
     }
 
     @Test
-    void queryPermission_EmptyResult() {
-        // Given
-        PermissionQuery permissionQuery = new PermissionQuery();
-        permissionQuery.setPageNum(1);
-        permissionQuery.setPageSize(10);
-        permissionQuery.setName("不存在的权限XYZ123");
+    void updateById_NoUsers_ShouldNotClearCache() {
+        when(permissionMapper.selectUserIdsByPermissionId(1L)).thenReturn(List.of());
+        when(permissionMapper.updateById(any(Permission.class))).thenReturn(1);
 
-        // When
-        PermissionPageVO result = permissionService.queryPermission(permissionQuery);
+        boolean result = permissionService.updateById(testPermission);
 
-        // Then
-        assertNotNull(result);
-        assertEquals(0, result.getTotal());
-        assertTrue(result.getPermissions().isEmpty());
+        assertTrue(result);
+        verify(stringRedisTemplate, never()).delete(anyList());
     }
 
     @Test
-    void save_Success() {
-        // When
-        boolean saved = permissionService.save(testPermission);
+    void updateById_Failed_ShouldNotClearCache() {
+        when(permissionMapper.selectUserIdsByPermissionId(1L)).thenReturn(List.of(10L));
+        when(permissionMapper.updateById(any(Permission.class))).thenReturn(0);
 
-        // Then
-        assertTrue(saved);
-        assertNotNull(testPermission.getId());
+        boolean result = permissionService.updateById(testPermission);
 
-        // Cleanup
-        permissionService.removeById(testPermission.getId());
+        assertFalse(result);
+        verify(stringRedisTemplate, never()).delete(anyList());
+    }
+
+    @Test
+    void removeById_ShouldClearCache() {
+        when(permissionMapper.selectUserIdsByPermissionId(1L)).thenReturn(List.of(10L, 20L, 30L));
+        when(permissionMapper.deleteById(1L)).thenReturn(1);
+
+        boolean result = permissionService.removeById(1L);
+
+        assertTrue(result);
+        verify(stringRedisTemplate).delete(List.of(
+                "auth:authorities:10", "auth:authorities:20", "auth:authorities:30"));
+    }
+
+    @Test
+    void removeById_NoUsers_ShouldNotClearCache() {
+        when(permissionMapper.selectUserIdsByPermissionId(1L)).thenReturn(List.of());
+        when(permissionMapper.deleteById(1L)).thenReturn(1);
+
+        boolean result = permissionService.removeById(1L);
+
+        assertTrue(result);
+        verify(stringRedisTemplate, never()).delete(anyList());
+    }
+
+    @Test
+    void removeById_Failed_ShouldNotClearCache() {
+        when(permissionMapper.selectUserIdsByPermissionId(1L)).thenReturn(List.of(10L));
+        when(permissionMapper.deleteById(1L)).thenReturn(0);
+
+        boolean result = permissionService.removeById(1L);
+
+        assertFalse(result);
+        verify(stringRedisTemplate, never()).delete(anyList());
     }
 }

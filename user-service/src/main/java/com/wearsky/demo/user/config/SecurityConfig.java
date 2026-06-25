@@ -45,6 +45,8 @@ public class SecurityConfig {
                         .requestMatchers(
                                 HttpMethod.GET, "/user-service/user/{id:\\d+}", "/user-service/user/ids").permitAll()
                         .requestMatchers(
+                                HttpMethod.GET, "/user-service/user/{id:\\d+}/authorities").permitAll()
+                        .requestMatchers(
                                 "/doc.html", "/webjars/**" // 放行knife4j
                                 , "/v3/**" // 放行OpenAPI JSON文档
                                 , "/swagger-ui/**") // 放行swagger

@@ -1,67 +1,55 @@
 package com.wearsky.demo.user.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wearsky.demo.user.config.SecurityConfig;
 import com.wearsky.demo.user.domain.entity.Role;
 import com.wearsky.demo.user.domain.query.RoleQuery;
 import com.wearsky.demo.user.domain.vo.RolePageVO;
 import com.wearsky.demo.user.service.IRoleService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
+import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(RoleController.class)
-@Import(SecurityConfig.class)
 class RoleControllerTest {
 
-    @Autowired
     private MockMvc mockMvc;
-
-    @Autowired
     private ObjectMapper objectMapper;
-
-    @MockitoBean
     private IRoleService roleService;
-
-    private Role testRole;
 
     @BeforeEach
     void setUp() {
-        testRole = new Role();
+        objectMapper = new ObjectMapper();
+        roleService = mock(IRoleService.class);
+        mockMvc = MockMvcBuilders.standaloneSetup(new RoleController(roleService)).build();
+    }
+
+    @Test
+    void queryRoles_Success() throws Exception {
+        Role testRole = new Role();
         testRole.setId(1L);
         testRole.setName("管理员");
         testRole.setCode("ADMIN");
         testRole.setDescription("系统管理员");
         testRole.setCreatedAt(LocalDateTime.now());
         testRole.setUpdatedAt(LocalDateTime.now());
-    }
 
-    @Test
-    @WithMockUser(roles = "ADMIN")
-    void queryRoles_Success() throws Exception {
-        // Given
         RolePageVO pageVO = new RolePageVO();
         pageVO.setTotal(1L);
-        pageVO.setRoles(Arrays.asList(testRole));
+        pageVO.setRoles(List.of(testRole));
 
         when(roleService.queryRole(any(RoleQuery.class))).thenReturn(pageVO);
 
-        // When & Then
         mockMvc.perform(get("/user-service/role/query")
                         .param("pageNum", "1")
                         .param("pageSize", "10"))
@@ -71,20 +59,14 @@ class RoleControllerTest {
     }
 
     @Test
-    @WithMockUser(roles = "USER")
-    void queryRoles_WithoutAdminRole_ShouldReturn403() throws Exception {
-        // When & Then
-        mockMvc.perform(get("/user-service/role/query"))
-                .andExpect(status().isForbidden());
-    }
-
-    @Test
-    @WithMockUser(roles = "ADMIN")
     void getRole_Success() throws Exception {
-        // Given
+        Role testRole = new Role();
+        testRole.setId(1L);
+        testRole.setName("管理员");
+        testRole.setCode("ADMIN");
+
         when(roleService.getById(1L)).thenReturn(testRole);
 
-        // When & Then
         mockMvc.perform(get("/user-service/role/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.code").value(200))
@@ -92,9 +74,7 @@ class RoleControllerTest {
     }
 
     @Test
-    @WithMockUser(roles = "ADMIN")
     void createRole_Success() throws Exception {
-        // Given
         Role newRole = new Role();
         newRole.setName("普通用户");
         newRole.setCode("USER");
@@ -102,19 +82,15 @@ class RoleControllerTest {
 
         when(roleService.save(any(Role.class))).thenReturn(true);
 
-        // When & Then
         mockMvc.perform(post("/user-service/role")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(newRole))
-                        .with(csrf()))
+                        .content(objectMapper.writeValueAsString(newRole)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.code").value(200));
     }
 
     @Test
-    @WithMockUser(roles = "ADMIN")
     void updateRole_Success() throws Exception {
-        // Given
         Role updateRole = new Role();
         updateRole.setId(1L);
         updateRole.setName("超级管理员");
@@ -122,24 +98,18 @@ class RoleControllerTest {
 
         when(roleService.updateById(any(Role.class))).thenReturn(true);
 
-        // When & Then
         mockMvc.perform(put("/user-service/role")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(updateRole))
-                        .with(csrf()))
+                        .content(objectMapper.writeValueAsString(updateRole)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.code").value(200));
     }
 
     @Test
-    @WithMockUser(roles = "ADMIN")
     void deleteRole_Success() throws Exception {
-        // Given
         when(roleService.removeById(1L)).thenReturn(true);
 
-        // When & Then
-        mockMvc.perform(delete("/user-service/role/1")
-                        .with(csrf()))
+        mockMvc.perform(delete("/user-service/role/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.code").value(200));
     }

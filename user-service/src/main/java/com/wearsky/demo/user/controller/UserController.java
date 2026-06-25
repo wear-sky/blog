@@ -100,7 +100,13 @@ public class UserController {
     @Operation(summary = "获取用户信息列表", description = "根据用户ID列表获取用户信息列表")
     @GetMapping("/ids")
     public ApiResponse<List<UserVO>> getUserByIds(@RequestParam List<Long> ids) {
-        List<User> users = userServiceImpl.getbyids(ids);
+        List<User> users = userServiceImpl.getByIds(ids);
         return ApiResponse.success(BeanUtil.copyToList(users, UserVO.class));
+    }
+
+    @Operation(summary = "获取用户权限列表", description = "根据用户ID获取角色和权限列表（供Gateway内部调用）")
+    @GetMapping("/{id}/authorities")
+    public ApiResponse<List<String>> getUserAuthorities(@PathVariable Long id) {
+        return ApiResponse.success(userServiceImpl.getAuthoritiesByUserId(id));
     }
 }

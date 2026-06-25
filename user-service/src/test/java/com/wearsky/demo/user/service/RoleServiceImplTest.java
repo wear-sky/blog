@@ -1,82 +1,112 @@
 package com.wearsky.demo.user.service;
 
 import com.wearsky.demo.user.domain.entity.Role;
-import com.wearsky.demo.user.domain.query.RoleQuery;
-import com.wearsky.demo.user.domain.vo.RolePageVO;
+import com.wearsky.demo.user.mapper.RoleMapper;
+import com.wearsky.demo.user.service.impl.RoleServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.test.util.ReflectionTestUtils;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
 
-@SpringBootTest
-@ActiveProfiles("test")
+@ExtendWith(MockitoExtension.class)
 class RoleServiceImplTest {
 
-    @Autowired
-    private IRoleService roleService;
+    @InjectMocks
+    private RoleServiceImpl roleService;
+
+    @Mock
+    private RoleMapper roleMapper;
+
+    @Mock
+    private StringRedisTemplate stringRedisTemplate;
 
     private Role testRole;
 
     @BeforeEach
     void setUp() {
+        ReflectionTestUtils.setField(roleService, "baseMapper", roleMapper);
+
         testRole = new Role();
-        testRole.setName("测试角色");
-        testRole.setCode("TEST");
-        testRole.setDescription("测试角色描述");
+        testRole.setId(1L);
+        testRole.setName("管理员");
+        testRole.setCode("ADMIN");
+        testRole.setDescription("系统管理员");
     }
 
     @Test
-    void queryRole_Success() {
-        // Given
-        roleService.save(testRole);
+    void updateById_ShouldClearCache() {
+        when(roleMapper.selectUserIdsByRoleId(1L)).thenReturn(List.of(10L, 20L));
+        when(roleMapper.updateById(any(Role.class))).thenReturn(1);
 
-        RoleQuery roleQuery = new RoleQuery();
-        roleQuery.setPageNum(1);
-        roleQuery.setPageSize(10);
-        roleQuery.setName("测试");
+        boolean result = roleService.updateById(testRole);
 
-        // When
-        RolePageVO result = roleService.queryRole(roleQuery);
-
-        // Then
-        assertNotNull(result);
-        assertTrue(result.getTotal() > 0);
-        assertFalse(result.getRoles().isEmpty());
-
-        // Cleanup
-        roleService.removeById(testRole.getId());
+        assertTrue(result);
+        verify(stringRedisTemplate).delete(List.of("auth:authorities:10", "auth:authorities:20"));
     }
 
     @Test
-    void queryRole_EmptyResult() {
-        // Given
-        RoleQuery roleQuery = new RoleQuery();
-        roleQuery.setPageNum(1);
-        roleQuery.setPageSize(10);
-        roleQuery.setName("不存在的角色XYZ123");
+    void updateById_NoUsers_ShouldNotClearCache() {
+        when(roleMapper.selectUserIdsByRoleId(1L)).thenReturn(List.of());
+        when(roleMapper.updateById(any(Role.class))).thenReturn(1);
 
-        // When
-        RolePageVO result = roleService.queryRole(roleQuery);
+        boolean result = roleService.updateById(testRole);
 
-        // Then
-        assertNotNull(result);
-        assertEquals(0, result.getTotal());
-        assertTrue(result.getRoles().isEmpty());
+        assertTrue(result);
+        verify(stringRedisTemplate, never()).delete(anyList());
     }
 
     @Test
-    void save_Success() {
-        // When
-        boolean saved = roleService.save(testRole);
+    void updateById_Failed_ShouldNotClearCache() {
+        when(roleMapper.selectUserIdsByRoleId(1L)).thenReturn(List.of(10L));
+        when(roleMapper.updateById(any(Role.class))).thenReturn(0);
 
-        // Then
-        assertTrue(saved);
-        assertNotNull(testRole.getId());
+        boolean result = roleService.updateById(testRole);
 
-        // Cleanup
-        roleService.removeById(testRole.getId());
+        assertFalse(result);
+        verify(stringRedisTemplate, never()).delete(anyList());
+    }
+
+    @Test
+    void removeById_ShouldClearCache() {
+        when(roleMapper.selectUserIdsByRoleId(1L)).thenReturn(List.of(10L, 20L, 30L));
+        when(roleMapper.deleteById(1L)).thenReturn(1);
+
+        boolean result = roleService.removeById(1L);
+
+        assertTrue(result);
+        verify(stringRedisTemplate).delete(List.of(
+                "auth:authorities:10", "auth:authorities:20", "auth:authorities:30"));
+    }
+
+    @Test
+    void removeById_NoUsers_ShouldNotClearCache() {
+        when(roleMapper.selectUserIdsByRoleId(1L)).thenReturn(List.of());
+        when(roleMapper.deleteById(1L)).thenReturn(1);
+
+        boolean result = roleService.removeById(1L);
+
+        assertTrue(result);
+        verify(stringRedisTemplate, never()).delete(anyList());
+    }
+
+    @Test
+    void removeById_Failed_ShouldNotClearCache() {
+        when(roleMapper.selectUserIdsByRoleId(1L)).thenReturn(List.of(10L));
+        when(roleMapper.deleteById(1L)).thenReturn(0);
+
+        boolean result = roleService.removeById(1L);
+
+        assertFalse(result);
+        verify(stringRedisTemplate, never()).delete(anyList());
     }
 }

@@ -2,6 +2,7 @@ package com.wearsky.demo.user.common;
 
 import io.jsonwebtoken.Jwts;
 import jakarta.annotation.PostConstruct;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -13,8 +14,8 @@ import java.security.PrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
+
 
 @Slf4j
 @Component
@@ -24,6 +25,7 @@ public class JwtUtil {
     @Value("${jwt.private-key-path}")
     private Resource privateKeyResource;
 
+    @Getter
     @Value("${jwt.expiration-ms}")
     private long expirationMs;
 
@@ -35,14 +37,13 @@ public class JwtUtil {
         this.privateKey = loadPrivateKey();
     }
 
-    public String generateToken(Long userId, List<String> authorities) {
+    public String generateToken(Long userId) {
         log.debug("令牌过期时间：{}ms", expirationMs);
         Date now = new Date();
         Date expiry = new Date(now.getTime() + expirationMs);
         return Jwts.builder()
                 .subject(String.valueOf(userId))
                 .id(UUID.randomUUID().toString())
-                .claim("authorities", authorities)
                 .issuedAt(now)
                 .expiration(expiry)
                 .signWith(privateKey)

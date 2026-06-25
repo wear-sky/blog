@@ -26,5 +26,7 @@ public interface IUserService extends IService<User> {
 
     Boolean deleteUserById(Long id);
 
-    List<User> getbyids(List<Long> ids);
+    List<User> getByIds(List<Long> ids);
+
+    List<String> getAuthoritiesByUserId(Long userId);
 }

@@ -10,7 +10,8 @@ spring:
         group: BLOG
   config:
     import:
-      - nacos:gateway.yaml
+      - optional:nacos:redis.yaml
+      - optional:nacos:gateway.yaml
 #    gateway:
 #      server:
 #        webflux:
@@ -29,6 +30,11 @@ spring:
 #                - Path=/click-service/**
 #  application:
 #    name: gateway
+#  data:
+#    redis:
+#      host: localhost
+#      port: 6379
+#      password: 123456
 #
 #server:
 #  port: 18080

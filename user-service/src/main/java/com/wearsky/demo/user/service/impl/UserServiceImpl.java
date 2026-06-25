@@ -4,6 +4,8 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wearsky.demo.common.client.BlogClient;
 import com.wearsky.demo.common.domain.vo.UserVO;
 import com.wearsky.demo.common.exception.BaseException;
@@ -20,19 +22,25 @@ import com.wearsky.demo.user.mapper.UserMapper;
 import com.wearsky.demo.user.mapper.UserRoleMapper;
 import com.wearsky.demo.user.service.IUserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.seata.spring.annotation.GlobalTransactional;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Stream;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+
+    private static final String AUTH_AUTHORITIES_KEY_PREFIX = "auth:authorities:";
 
     private final PasswordEncoder passwordEncoder;
 
@@ -45,6 +53,10 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     private final JwtUtil jwtUtil;
 
     private final BlogClient blogClient;
+
+    private final StringRedisTemplate stringRedisTemplate;
+
+    private final ObjectMapper objectMapper;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -82,11 +94,41 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         if (!passwordEncoder.matches(loginDTO.getPassword(), user.getPassword())) {
             throw new BaseException("用户名或密码不正确");
         }
-        List<String> roleCodes = roleMapper.selectCodeByUserId(user.getId());
-        List<String> permissionCodes = permissionMapper.selectCodeByUserId(user.getId());
+        getAuthoritiesByUserId(user.getId());
+        return jwtUtil.generateToken(user.getId());
+    }
+
+    @Override
+    public List<String> getAuthoritiesByUserId(Long userId) {
+        String redisKey = AUTH_AUTHORITIES_KEY_PREFIX + userId;
+
+        // 1. 尝试从 Redis 获取
+        try {
+            String json = stringRedisTemplate.opsForValue().get(redisKey);
+            if (json != null) {
+                return objectMapper.readValue(json, new TypeReference<>() {
+                });
+            }
+        } catch (Exception e) {
+            log.warn("Redis读取authorities失败, userId={}: {}", userId, e.getMessage());
+        }
+
+        // 2. Redis 无值，查库
+        List<String> roleCodes = roleMapper.selectCodeByUserId(userId);
+        List<String> permissionCodes = permissionMapper.selectCodeByUserId(userId);
         List<String> authorities = Stream.concat(
                 roleCodes.stream().map((roleCode) -> "ROLE_" + roleCode), permissionCodes.stream()).toList();
-        return jwtUtil.generateToken(user.getId(), authorities);
+
+        // 3. 写回 Redis
+        try {
+            stringRedisTemplate.opsForValue().set(redisKey,
+                    objectMapper.writeValueAsString(authorities),
+                    Duration.ofMillis(jwtUtil.getExpirationMs()));
+        } catch (Exception e) {
+            log.warn("写入Redis缓存authorities失败, userId={}: {}", userId, e.getMessage());
+        }
+
+        return authorities;
     }
 
     @Override
@@ -125,7 +167,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     }
 
     @Override
-    public List<User> getbyids(List<Long> ids) {
+    public List<User> getByIds(List<Long> ids) {
         return lambdaQuery().in(User::getId, ids).list();
     }
 }

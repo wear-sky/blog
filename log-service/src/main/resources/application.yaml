@@ -10,6 +10,6 @@ spring:
         group: BLOG
   config:
     import:
-      - nacos:log.yaml?refreshEnabled=true
-      - nacos:rabbitmq.yaml?refreshEnabled=true
-      - nacos:log-service.yaml?refreshEnabled=true
+      - optional:nacos:log.yaml?refreshEnabled=true
+      - optional:nacos:rabbitmq.yaml?refreshEnabled=true
+      - optional:nacos:log-service.yaml?refreshEnabled=true

@@ -1,7 +1,7 @@
 spring:
   cloud:
     nacos:
-      server-addr: 127.0.0.1:8848
+      server-addr: 192.168.1.200:8848
       discovery:
         namespace: dev
         group: BLOG
@@ -10,12 +10,13 @@ spring:
         group: BLOG
   config:
     import:
-      - nacos:log.yaml
-      - nacos:knife4j.yaml
-      - nacos:seata.yaml
-      - nacos:rabbitmq.yaml?refreshEnabled=true
-      - nacos:mybatis-plus.yaml
-      - nacos:user-service.yaml?refreshEnabled=true
+      - optional:nacos:log.yaml
+      - optional:nacos:knife4j.yaml
+      - optional:nacos:seata.yaml
+      - optional:nacos:rabbitmq.yaml?refreshEnabled=true
+      - optional:nacos:redis.yaml
+      - optional:nacos:mybatis-plus.yaml
+      - optional:nacos:user-service.yaml?refreshEnabled=true
 #  application:
 #    name: user-service
 #  datasource:
@@ -23,6 +24,11 @@ spring:
 #    username: root
 #    password: 123456
 #    url: jdbc:mysql://localhost:3306/user_service?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+#  data:
+#    redis:
+#      host: localhost
+#      port: 6379
+#      password: 123456
 
 #server:
 #  port: 28080

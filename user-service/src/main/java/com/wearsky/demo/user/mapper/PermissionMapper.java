@@ -18,4 +18,6 @@ public interface PermissionMapper extends BaseMapper<Permission> {
 
     List<String> selectCodeByUserId(@Param("userId") Long userId);
 
+    List<Long> selectUserIdsByPermissionId(@Param("permissionId") Long permissionId);
+
 }

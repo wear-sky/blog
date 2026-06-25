@@ -10,11 +10,11 @@ spring:
         group: BLOG
   config:
     import:
-      - nacos:log.yaml?refreshEnabled=true
-      - nacos:knife4j.yaml?refreshEnabled=true
-      - nacos:rabbitmq.yaml?refreshEnabled=true
-      - nacos:mybatis-plus.yaml?refreshEnabled=true
-      - nacos:click-service.yaml?refreshEnabled=true
+      - optional:nacos:log.yaml?refreshEnabled=true
+      - optional:nacos:knife4j.yaml?refreshEnabled=true
+      - optional:nacos:rabbitmq.yaml?refreshEnabled=true
+      - optional:nacos:mybatis-plus.yaml?refreshEnabled=true
+      - optional:nacos:click-service.yaml?refreshEnabled=true
 #  application:
 #    name: click-service
 #  datasource:
