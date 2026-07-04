@@ -162,7 +162,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
     @Override
     @GlobalTransactional(rollbackFor = Exception.class)
     public Boolean deleteUserById(Long id) {
-        blogClient.deleteBogsByAuthorId(id);
+        blogClient.deleteByAuthorId(id);
         return removeById(id);
     }
 

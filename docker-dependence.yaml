@@ -75,3 +75,9 @@ services:
     environment:
       discovery.type: single-node
       xpack.security.enabled: false
+  sentinel:
+    image: bladex/sentinel-dashboard:1.8.9
+    container_name: Sentinel
+    ports:
+      - "8719:8719"
+      - "8858:8858"

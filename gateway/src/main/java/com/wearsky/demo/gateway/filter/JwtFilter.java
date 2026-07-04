@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
+import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -26,10 +27,12 @@ public class JwtFilter implements GlobalFilter {
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String BEARER_PREFIX = "Bearer ";
     private static final String USER_AUTHORITIES_INFO_HEADER = "UserAuthoritiesInfo";
+    private static final String AUTH_AUTHORITIES_KEY_PREFIX = "auth:authorities:";
 
     private final JwtUtil jwtUtil;
     private final ObjectMapper objectMapper;
     private final WebClient webClient;
+    private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -69,6 +72,27 @@ public class JwtFilter implements GlobalFilter {
     }
 
     private Mono<List<String>> getAuthorities(Long userId) {
+        String redisKey = AUTH_AUTHORITIES_KEY_PREFIX + userId;
+
+        // 1. 先从 Redis 获取
+        return reactiveRedisTemplate.opsForValue().get(redisKey)
+                .flatMap(json -> {
+                    try {
+                        List<String> authorities = objectMapper.readValue(json, new TypeReference<>() {});
+                        return Mono.just(authorities);
+                    } catch (Exception e) {
+                        log.warn("Redis解析authorities失败, userId={}: {}", userId, e.getMessage());
+                        return Mono.empty();
+                    }
+                })
+                .onErrorResume(e -> {
+                    log.warn("Redis读取authorities失败, userId={}, 回退到user-service: {}", userId, e.getMessage());
+                    return Mono.empty();
+                })
+                .switchIfEmpty(Mono.defer(() -> getAuthoritiesFromUserService(userId)));
+    }
+
+    private Mono<List<String>> getAuthoritiesFromUserService(Long userId) {
         return webClient.get()
                 .uri("http://user-service/user-service/user/{id}/authorities", userId)
                 .retrieve()

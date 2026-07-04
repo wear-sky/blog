@@ -11,6 +11,7 @@ spring:
   config:
     import:
       - optional:nacos:log.yaml?refreshEnabled=true
+      - optional:nacos:sentinel.yaml
       - optional:nacos:knife4j.yaml?refreshEnabled=true
       - optional:nacos:rabbitmq.yaml?refreshEnabled=true
       - optional:nacos:mybatis-plus.yaml?refreshEnabled=true

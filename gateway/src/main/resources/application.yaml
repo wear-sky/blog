@@ -10,6 +10,7 @@ spring:
         group: BLOG
   config:
     import:
+      - optional:nacos:sentinel.yaml
       - optional:nacos:redis.yaml
       - optional:nacos:gateway.yaml
 #    gateway:

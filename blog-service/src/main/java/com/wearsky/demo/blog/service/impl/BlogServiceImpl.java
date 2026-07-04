@@ -84,7 +84,7 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
         if (blog == null) {
             throw new BaseException("博客不存在");
         }
-        ApiResponse<UserVO> me = userClient.getUser(blog.getAuthorId());
+        ApiResponse<UserVO> me = userClient.getById(blog.getAuthorId());
         BlogVO blogVO = BeanUtil.toBean(blog, BlogVO.class);
         blogVO.setAuthor(me.getData());
         return blogVO;
@@ -115,7 +115,7 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
                     .distinct()
                     .toList();
 
-            ApiResponse<List<UserVO>> response = userClient.getUserByIds(authorIds);
+            ApiResponse<List<UserVO>> response = userClient.getByIds(authorIds);
             if (response.getData() != null) {
                 Map<Long, UserVO> authorMap = response.getData().stream()
                         .collect(Collectors.toMap(UserVO::getId, user -> user));

@@ -8,10 +8,15 @@ spring:
       config:
         namespace: dev
         group: BLOG
+#    sentinel:
+#      transport:
+#        dashboard: 192.168.1.200:8858
+#      http-method-specify: true # 开启请求方式前缀
   config:
     import:
       - optional:nacos:log.yaml
       - optional:nacos:knife4j.yaml
+      - optional:nacos:sentinel.yaml
       - optional:nacos:seata.yaml
       - optional:nacos:rabbitmq.yaml?refreshEnabled=true
       - optional:nacos:redis.yaml
@@ -70,3 +75,6 @@ spring:
 #    name: ./log/${spring.application.name}.log
 #  level:
 #    com.wearsky.demo: debug
+#feign:
+#  sentinel:
+#    enabled: true

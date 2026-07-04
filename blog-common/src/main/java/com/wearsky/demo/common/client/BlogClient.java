@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface BlogClient {
 
     @DeleteMapping("/blog-service/blog/author/{authorId}")
-    ApiResponse<Void> deleteBogsByAuthorId(@PathVariable Long authorId);
+    ApiResponse<Void> deleteByAuthorId(@PathVariable Long authorId);
 
 }

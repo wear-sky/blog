@@ -11,5 +11,6 @@ spring:
   config:
     import:
       - optional:nacos:log.yaml?refreshEnabled=true
+      - optional:nacos:sentinel.yaml
       - optional:nacos:rabbitmq.yaml?refreshEnabled=true
       - optional:nacos:log-service.yaml?refreshEnabled=true

@@ -16,8 +16,8 @@ public interface UserClient {
     ApiResponse<UserVO> me();
 
     @GetMapping("/user-service/user/{id}")
-    ApiResponse<UserVO> getUser(@PathVariable Long id);
+    ApiResponse<UserVO> getById(@PathVariable Long id);
 
     @GetMapping("/user-service/user/ids")
-    ApiResponse<List<UserVO>> getUserByIds(@RequestParam("ids") List<Long> ids);
+    ApiResponse<List<UserVO>> getByIds(@RequestParam("ids") List<Long> ids);
 }
