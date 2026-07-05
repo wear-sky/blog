@@ -1,0 +1,56 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0,
+    "refresh_interval": "5s"
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "userId": {
+        "type": "long"
+      },
+      "username": {
+        "type": "keyword"
+      },
+      "module": {
+        "type": "keyword"
+      },
+      "operation": {
+        "type": "keyword"
+      },
+      "method": {
+        "type": "keyword"
+      },
+      "httpMethod": {
+        "type": "keyword"
+      },
+      "url": {
+        "type": "keyword"
+      },
+      "params": {
+        "type": "keyword",
+        "index": false
+      },
+      "ip": {
+        "type": "keyword"
+      },
+      "status": {
+        "type": "integer"
+      },
+      "errorMsg": {
+        "type": "keyword",
+        "index": false
+      },
+      "duration": {
+        "type": "long"
+      },
+      "createdAt": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss"
+      }
+    }
+  }
+}

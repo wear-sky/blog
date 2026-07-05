@@ -14,3 +14,14 @@ spring:
       - optional:nacos:sentinel.yaml
       - optional:nacos:rabbitmq.yaml?refreshEnabled=true
       - optional:nacos:log-service.yaml?refreshEnabled=true
+
+#spring:
+#  application:
+#    name: log-service
+#  elasticsearch:
+#    uris: http://192.168.1.200:9200
+#    # username: elastic
+#    # password: your_password
+#
+#server:
+#  port: 58080
