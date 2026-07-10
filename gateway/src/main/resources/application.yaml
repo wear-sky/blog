@@ -38,7 +38,7 @@ spring:
 #      password: 123456
 #
 #server:
-#  port: 18080
+#  port: 8081
 #
 #jwt:
 #  public-key-path: classpath:keys/public-key.pem

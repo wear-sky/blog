@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        namespace: dev
+        group: BLOG
+      config:
+        namespace: dev
+        group: BLOG
+  config:
+    import:
+      - optional:nacos:log.yaml?refreshEnabled=true
+      - optional:nacos:rabbitmq.yaml?refreshEnabled=true
+      - optional:nacos:search-service.yaml?refreshEnabled=true
+#  application:
+#    name: search-service
+#  elasticsearch:
+#    uris: http://192.168.1.200:9200
+#
+#server:
+#  port: 8086

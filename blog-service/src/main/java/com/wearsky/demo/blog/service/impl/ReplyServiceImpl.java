@@ -3,6 +3,8 @@ package com.wearsky.demo.blog.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.wearsky.demo.common.constant.SearchConstants;
+import com.wearsky.demo.common.dto.SearchContentDTO;
 import com.wearsky.demo.common.exception.BaseException;
 import com.wearsky.demo.blog.domain.dto.CreateReplyDTO;
 import com.wearsky.demo.blog.domain.entity.Blog;
@@ -49,6 +51,17 @@ public class ReplyServiceImpl extends ServiceImpl<ReplyMapper, Reply> implements
         Reply reply = BeanUtil.toBean(dto, Reply.class);
         reply.setUserId(userId);
         this.save(reply);
+
+        // 发送搜索消息
+        SearchContentDTO searchDto = new SearchContentDTO();
+        searchDto.setId(reply.getId());
+        searchDto.setType("reply");
+        searchDto.setBlogId(reply.getBlogId());
+        searchDto.setContent(reply.getContent());
+        searchDto.setAuthorId(reply.getUserId());
+        searchDto.setCreatedAt(reply.getCreatedAt() != null ? reply.getCreatedAt().toString() : null);
+        rabbitTemplate.convertAndSend(SearchConstants.EXCHANGE, SearchConstants.REPLY_SAVE, searchDto);
+
         return reply.getId();
     }
 
@@ -62,7 +75,14 @@ public class ReplyServiceImpl extends ServiceImpl<ReplyMapper, Reply> implements
         if (!reply.getUserId().equals(userId)) {
             throw new BaseException("只能删除自己的回复");
         }
-        return this.removeById(id);
+        boolean deleted = this.removeById(id);
+
+        SearchContentDTO searchDto = new SearchContentDTO();
+        searchDto.setId(id);
+        searchDto.setType("reply");
+        rabbitTemplate.convertAndSend(SearchConstants.EXCHANGE, SearchConstants.REPLY_DELETE, searchDto);
+
+        return deleted;
     }
 
     @Override

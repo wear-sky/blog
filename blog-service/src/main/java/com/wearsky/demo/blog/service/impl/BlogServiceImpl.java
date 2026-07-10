@@ -15,8 +15,10 @@ import com.wearsky.demo.blog.domain.vo.BlogVO;
 import com.wearsky.demo.blog.mapper.BlogMapper;
 import com.wearsky.demo.blog.service.IBlogService;
 import com.wearsky.demo.common.client.UserClient;
+import com.wearsky.demo.common.constant.SearchConstants;
 import com.wearsky.demo.common.domain.vo.ApiResponse;
 import com.wearsky.demo.common.domain.vo.UserVO;
+import com.wearsky.demo.common.dto.SearchContentDTO;
 import com.wearsky.demo.common.exception.BaseException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -45,6 +47,7 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
         Blog blog = BeanUtil.toBean(dto, Blog.class);
         blog.setAuthorId(authorId);
         this.save(blog);
+        sendSearchMessage(blog);
         return blog.getId();
     }
 
@@ -62,7 +65,10 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
         blog.setContent(dto.getContent());
         blog.setCreatedAt(null);
         blog.setUpdatedAt(null);
-        return this.updateById(blog);
+        boolean updated = this.updateById(blog);
+        blog.setUpdatedAt(null);
+        sendSearchMessage(blog);
+        return updated;
     }
 
     @Override
@@ -75,7 +81,12 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
         if (!blog.getAuthorId().equals(authorId)) {
             throw new BaseException("只能删除自己的博客");
         }
-        return this.removeById(id);
+        boolean deleted = this.removeById(id);
+        SearchContentDTO dto = new SearchContentDTO();
+        dto.setId(id);
+        dto.setType("blog");
+        rabbitTemplate.convertAndSend(SearchConstants.EXCHANGE, SearchConstants.BLOG_DELETE, dto);
+        return deleted;
     }
 
     @Override
@@ -183,6 +194,24 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements IB
     @Transactional
     public Boolean deleteBlogByAuthorId(Long authorId) {
         List<Long> ids = lambdaQuery().eq(Blog::getAuthorId, authorId).list().stream().map(Blog::getId).toList();
-        return removeByIds(ids);
+        boolean deleted = removeByIds(ids);
+        if (!ids.isEmpty()) {
+            SearchContentDTO dto = new SearchContentDTO();
+            dto.setType("blog");
+            dto.setIds(ids);
+            rabbitTemplate.convertAndSend(SearchConstants.EXCHANGE, SearchConstants.BLOG_DELETE_BATCH, dto);
+        }
+        return deleted;
+    }
+
+    private void sendSearchMessage(Blog blog) {
+        SearchContentDTO dto = new SearchContentDTO();
+        dto.setId(blog.getId());
+        dto.setType("blog");
+        dto.setTitle(blog.getTitle());
+        dto.setContent(blog.getContent());
+        dto.setAuthorId(blog.getAuthorId());
+        dto.setCreatedAt(blog.getCreatedAt() != null ? blog.getCreatedAt().toString() : null);
+        rabbitTemplate.convertAndSend(SearchConstants.EXCHANGE, SearchConstants.BLOG_SAVE, dto);
     }
 }

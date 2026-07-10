@@ -1,16 +1,25 @@
 <script setup>
-import { computed, onMounted, h } from 'vue'
+import { ref, computed, onMounted, h } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
-import { NSpace, NButton, NAvatar, NDropdown, NText } from 'naive-ui'
+import { NSpace, NButton, NAvatar, NDropdown, NText, NInput, NIcon } from 'naive-ui'
 import {
   CreateOutline,
   LogOutOutline,
-  PersonOutline
+  PersonOutline,
+  SearchOutline
 } from '@vicons/ionicons5'
 
 const router = useRouter()
 const auth = useAuthStore()
+
+const searchKeyword = ref('')
+
+function handleSearch() {
+  const q = searchKeyword.value.trim()
+  if (!q) return
+  router.push({ path: '/search', query: { q } })
+}
 
 onMounted(() => {
   if (auth.isLoggedIn) {
@@ -70,6 +79,21 @@ function goRegister() {
     <div class="navbar-brand" @click="goHome">
       <NText class="brand-icon">✦</NText>
       <NText class="brand-text" tag="span">暖光笔记</NText>
+    </div>
+
+    <div class="navbar-search">
+      <NInput
+        v-model:value="searchKeyword"
+        placeholder="搜索..."
+        size="small"
+        round
+        clearable
+        @keyup.enter="handleSearch"
+      >
+        <template #prefix>
+          <NIcon :component="SearchOutline" :size="16" />
+        </template>
+      </NInput>
     </div>
 
     <NSpace align="center" :size="8">
@@ -146,5 +170,11 @@ function goRegister() {
   font-size: 0.85rem;
   font-weight: 600;
   color: #3D3028;
+}
+
+.navbar-search {
+  flex: 1;
+  max-width: 240px;
+  margin: 0 24px;
 }
 </style>
